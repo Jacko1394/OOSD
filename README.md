@@ -20,4 +20,9 @@
 
 ![alt text](https://koenig-media.raywenderlich.com/uploads/2016/06/MVC-feature.png "MVC")
 
+#### Java
+/usr/libexec/java_home
+#### JavaFX SDK
+https://gluonhq.com/products/javafx/
+
 <!-- ![alt text](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/MVC-Process.svg/1024px-MVC-Process.svg.png "MVC2") -->
