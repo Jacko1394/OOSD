@@ -1,0 +1,16 @@
+package Player5;
+
+package player.player1;
+
+public class Player5 extends Player {
+
+    public Player5() {
+
+    }
+
+    @override
+    public void init_dice(){
+        //TODO fill the custom dice
+    }
+
+}
