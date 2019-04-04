@@ -1,10 +1,10 @@
-package models;
+package game.board.cell;
 
-public class CellModel {
+public class Cell {
 
-    pivate players: PlayerModel[];
+    // private players: PlayerModel[];
 
-    public CellModel() {
+    public Cell() {
 
     }
 
@@ -16,9 +16,9 @@ public class CellModel {
 
     }
 
-    public Boolean checkIfNull(){
+    // public Boolean checkIfNull(){
 
-    }
+    // }
 
     public void renderSquare(){
 

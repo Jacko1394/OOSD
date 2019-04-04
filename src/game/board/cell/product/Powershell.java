@@ -1,4 +1,4 @@
-package Product.Powershell;
+package game.board.cell.product;
 
 public class Powershell extends Product {
 
@@ -6,7 +6,7 @@ public class Powershell extends Product {
 
     }
 
-    @override
+    @Override
     public void init_dice(){
         //TODO fill the custom dice
     }

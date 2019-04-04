@@ -1,4 +1,4 @@
-package Product.SurfacePro;
+package game.board.cell.product;
 
 public class SurfacePro extends Product {
 
@@ -6,7 +6,7 @@ public class SurfacePro extends Product {
 
     }
 
-    @override
+    @Override
     public void init_dice(){
         //TODO fill the custom dice
     }

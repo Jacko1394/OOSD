@@ -1,4 +1,4 @@
-package Product.osx;
+package game.board.cell.product;
 
 public class OSX extends Product {
 
@@ -6,7 +6,7 @@ public class OSX extends Product {
 
     }
 
-    @override
+    @Override
     public void init_dice(){
         //TODO fill the custom dice
     }

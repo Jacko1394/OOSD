@@ -1,9 +1,8 @@
-package board;
+package game.board;
 
-public class BoardModel {
+public class Board {
 
-    private cells: Cell[][];
-    
+    // private cells: Cell[][];
 
     public Board() {
 
@@ -24,7 +23,5 @@ public class BoardModel {
     public void initialisePieces() {
 
     }
-
-
 
 }

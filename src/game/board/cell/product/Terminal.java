@@ -1,4 +1,4 @@
-package Product.Terminal;
+package game.board.cell.product;
 
 public class Terminal extends Product {
 
@@ -6,7 +6,7 @@ public class Terminal extends Product {
 
     }
 
-    @override
+    @Override
     public void init_dice(){
         //TODO fill the custom dice
     }
