@@ -1,8 +1,8 @@
-package Product.iOS;
+package Product.osx;
 
-public class iOS extends Product {
+public class OSX extends Product {
 
-    public iOS() {
+    public OSX() {
 
     }
 
