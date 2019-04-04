@@ -1,8 +1,8 @@
-package player.player5;
+package Product.iOS;
 
-public class Player5Model extends Player {
+public class iOS extends Product {
 
-    public Player5Model() {
+    public iOS() {
 
     }
 

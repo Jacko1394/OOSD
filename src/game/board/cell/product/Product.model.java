@@ -1,7 +1,7 @@
-package player;
+package Product;
 
 
-public class PlayerModel {
+public class Product {
 
     private dice: int[];
 

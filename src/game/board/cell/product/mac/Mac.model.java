@@ -1,8 +1,8 @@
-package player.player3;
+package Product.Mac;
 
-public class Player3Model extends Player {
+public class Mac extends Product {
 
-    public Player3Model() {
+    public Mac() {
 
     }
 

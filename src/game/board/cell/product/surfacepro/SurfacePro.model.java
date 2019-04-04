@@ -1,8 +1,8 @@
-package player.player6;
+package Product.SurfacePro;
 
-public class Player6Model extends Player {
+public class SurfacePro extends Product {
 
-    public Player6Model() {
+    public SurfacePro() {
 
     }
 

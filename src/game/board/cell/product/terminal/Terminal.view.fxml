@@ -1,8 +1,8 @@
-package player.player1;
+package Product.Terminal;
 
-public class Player1Model extends Player {
+public class Terminal extends Product {
 
-    public Player1Model() {
+    public Terminal() {
 
     }
 
