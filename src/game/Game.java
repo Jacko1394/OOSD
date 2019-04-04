@@ -1,12 +1,10 @@
 package game;
 
-public class GameModel {
+public class Game {
 
     private int numberOfTeams;
     private String noOfNeams;
 
-    public GameModel() {
-
-    }
+    
 
 }
