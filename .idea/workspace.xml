@@ -2,28 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a9a7cc26-257c-47dd-a854-b79d05c91709" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/board/board.model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/board/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/board/board.view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/board/board.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/board/cell/cell.model.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/board/cell/cell.view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/board/cell/cell.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/board/cell/product/Product.model.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/board/cell/product/mac/Mac.model.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/board/cell/product/mac/Mac.view.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/board/cell/product/osx/OSX.model.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/board/cell/product/osx/OSX.view.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/board/cell/product/powershell/Powershell.model.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/board/cell/product/powershell/Powershell.view.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/board/cell/product/surfacepro/SurfacePro.model.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/board/cell/product/surfacepro/SurfacePro.view.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/board/cell/product/terminal/Terminal.model.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/board/cell/product/terminal/Terminal.view.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/board/cell/product/windows10/Windows10.model.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/board/cell/product/windows10/Windows10.view.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/game.controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/game.model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/game.view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/game.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/GameModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/GameModel.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -52,7 +31,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/game/game.fxml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="286">
@@ -60,6 +39,24 @@
             </state>
           </provider>
           <provider editor-type-id="JavaFX-Scene-Builder" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/game/GameModel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="242">
+              <caret line="11" column="1" lean-forward="true" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/game/GameController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="44">
+              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -80,6 +77,7 @@
         <option value="$PROJECT_DIR$/src/game/Game.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/game/game.fxml" />
+        <option value="$PROJECT_DIR$/src/game/GameModel.java" />
       </list>
     </option>
   </component>
@@ -115,7 +113,27 @@
             </path>
             <path>
               <item name="OOSD" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="OOSD" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="game" type="462c0819:PsiDirectoryNode" />
+              <item name="board" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="OOSD" type="b2602c69:ProjectViewProjectNode" />
+              <item name="OOSD" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="game" type="462c0819:PsiDirectoryNode" />
+              <item name="board" type="462c0819:PsiDirectoryNode" />
+              <item name="cell" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="OOSD" type="b2602c69:ProjectViewProjectNode" />
+              <item name="OOSD" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="game" type="462c0819:PsiDirectoryNode" />
+              <item name="board" type="462c0819:PsiDirectoryNode" />
+              <item name="cell" type="462c0819:PsiDirectoryNode" />
+              <item name="product" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -239,13 +257,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/game/GameController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/game/board/cell/product/Mac.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="286">
@@ -289,6 +300,20 @@
         </state>
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game/GameController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game/GameModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="11" column="1" lean-forward="true" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+        </state>
+      </provider>
     </entry>
   </component>
   <component name="masterDetails">
