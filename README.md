@@ -25,3 +25,8 @@
 <!-- ![alt text](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/MVC-Process.svg/1024px-MVC-Process.svg.png "MVC2") -->
 
 sam can push
+
+####Testing build commands:
+* complile -> javac -d out src/game/Test.java src/game/Game.java src/game/board/Board.java src/game/board/cell/Cell.java
+* run      -> java -cp out game.Test
+
