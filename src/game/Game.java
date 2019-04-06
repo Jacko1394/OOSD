@@ -20,6 +20,7 @@ public class Game {
 
         Board board = new Board();
         board.initialiseCells();
+        board.mapDirection();
     }
 
     public String nextPlayer()
@@ -67,5 +68,4 @@ public class Game {
     {
         this.listOfTeams = listOfTeams;
     }
-
 }

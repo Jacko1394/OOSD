@@ -19,14 +19,11 @@ public class Main extends Application {
         var list = root.getChildrenUnmodifiable();
 
         System.out.println(list);
-
     }
 
     public static void main(String[] args) {
         launch(args);
     }
 
- 
-    
     
 }
