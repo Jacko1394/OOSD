@@ -4,11 +4,12 @@
 <?import javafx.scene.control.Button?>
 
 <GridPane fx:controller="game.Controller"
+          fx:id="mainGrid"
           xmlns:fx="http://javafx.com/fxml"
           alignment="center"
-          hgap="10"
-          vgap="10">
+          hgap="4"
+          vgap="4">
 
-    <Button text="swag"/>
+<!--    <Button text="swag"/>-->
 
 </GridPane>
