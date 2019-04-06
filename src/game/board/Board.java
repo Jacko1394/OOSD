@@ -35,6 +35,8 @@ public class Board {
 
     public void displayBoard() {
 
+    }
+
     public boolean movePiece(Cell[][] startPoint, char direction) 
     {
         return false;
@@ -156,6 +158,18 @@ public class Board {
         cells[14][12].setDirections("r");
         cells[14][13].setDirections("r");
         cells[14][14].setDirections("u");
-    }
+}
+
+public void initialiseCells() 
+    {
+        // initialise all cells as null
+        for (int i = 0; i < cells.length; i++)
+        {
+            for (int j = 0; i < cells[i].length; j++)
+            {
+                cells[i][j] = new Cell();
+            }
+        }
+    }    
 
 }
