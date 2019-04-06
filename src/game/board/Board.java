@@ -1,12 +1,39 @@
 package game.board;
 
 import game.board.cell.Cell;
+import game.board.cell.product.*;
 
 public class Board {
 
     // 2d array of cells = 15x15 board
     // mapped cells[y]][x]
     private Cell cells[][] = new Cell[15][15];
+    // 2d array of cells = 12*12 board
+    private Cell[][] Cells = new Cell[12][12];
+
+    public Board() {
+       
+
+        
+    }
+
+    public void initBoard() {
+         // Apple Team
+         Cells[0][0].setProduct(new Mac());
+         Cells[0][1].setProduct(new OSX());
+         Cells[0][2].setProduct(new Terminal());
+ 
+         // Microsoft Team
+         Cells[12][12].setProduct(new Windows10());
+         Cells[12][12].setProduct(new SurfacePro());
+         Cells[12][12].setProduct(new Powershell());
+    }
+
+    public void movePiece() {
+
+    }
+
+    public void displayBoard() {
 
     public boolean movePiece(Cell[][] startPoint, char direction) 
     {
