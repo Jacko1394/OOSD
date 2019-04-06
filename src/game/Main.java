@@ -25,6 +25,9 @@ public class Main extends Application {
         grid = (GridPane)primaryStage.getScene().lookup("#mainGrid");
         primaryStage.show();
 
+        var game = new Game();
+        game.startGame();
+
         var board = Board.Cells;
 
         for (int row = 0; row < board.length; row++) {
@@ -36,7 +39,16 @@ public class Main extends Application {
                 rec.setFill(Color.color(0.5,0.5,0.5));
                 GridPane.setRowIndex(rec, row);
                 GridPane.setColumnIndex(rec, col);
-                grid.getChildren().addAll(rec);
+
+                try {
+
+                    if (board[row][col].getIsSet()) {
+                        grid.getChildren().add(rec);
+                    }
+                } catch (Exception e) {
+                    System.out.println(e.toString());
+                }
+
             }
         }
 

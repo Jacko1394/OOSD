@@ -5,9 +5,10 @@ import game.board.cell.product.Product;
 public class Cell {
 
     private Product product = null;
-    private char[] directions = null;
-    private boolean isSet = false;
+    private char[] directions = new char[4];
 
+    private boolean isSet = false;
+    public boolean getIsSet() {return isSet;}
 
     public void emptyCell()
     {
