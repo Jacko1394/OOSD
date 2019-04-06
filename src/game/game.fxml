@@ -3,7 +3,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.control.Button?>
 
-<GridPane fx:controller="game.GameController"
+<GridPane fx:controller="game.Controller"
           xmlns:fx="http://javafx.com/fxml"
           alignment="center"
           hgap="10"
