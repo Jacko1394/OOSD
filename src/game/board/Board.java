@@ -8,8 +8,6 @@ public class Board {
     // 2d array of cells = 15x15 board
     // mapped cells[y]][x]
     private Cell cells[][] = new Cell[15][15];
-    // 2d array of cells = 12*12 board
-    private Cell[][] Cells = new Cell[12][12];
 
     public Board() {
        
@@ -19,14 +17,15 @@ public class Board {
 
     public void initBoard() {
          // Apple Team
-         Cells[0][0].setProduct(new Mac());
-         Cells[0][1].setProduct(new OSX());
-         Cells[0][2].setProduct(new Terminal());
+         /*cells[0][0].setProduct(new Mac());
+         cells[0][1].setProduct(new OSX());
+         cells[0][2].setProduct(new Terminal());
+         
  
          // Microsoft Team
-         Cells[12][12].setProduct(new Windows10());
-         Cells[12][12].setProduct(new SurfacePro());
-         Cells[12][12].setProduct(new Powershell());
+         cells[12][12].setProduct(new Windows10());
+         cells[12][12].setProduct(new SurfacePro());
+         cells[12][12].setProduct(new Powershell());*/
     }
 
     public void movePiece() {
@@ -158,18 +157,6 @@ public class Board {
         cells[14][12].setDirections("r");
         cells[14][13].setDirections("r");
         cells[14][14].setDirections("u");
-}
-
-public void initialiseCells() 
-    {
-        // initialise all cells as null
-        for (int i = 0; i < cells.length; i++)
-        {
-            for (int j = 0; i < cells[i].length; j++)
-            {
-                cells[i][j] = new Cell();
-            }
-        }
-    }    
+    }
 
 }
