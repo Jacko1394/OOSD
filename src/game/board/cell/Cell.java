@@ -1,8 +1,10 @@
 package game.board.cell;
 
+import game.board.cell.product.Product;
+
 public class Cell {
 
-    // private players: PlayerModel[];
+    private Product product;
 
     public Cell() {
 
@@ -30,6 +32,14 @@ public class Cell {
 
     public void initAppleProduct(){
 
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+
+    public Product getProduct() {
+        return this.product;
     }
 
 

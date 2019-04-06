@@ -27,6 +27,6 @@
 sam can push
 
 ####Testing build commands:
-* complile -> javac -d out src/game/Test.java src/game/Game.java src/game/board/Board.java src/game/board/cell/Cell.java
+* complile -> javac -d out src/game/Test.java src/game/Game.java src/game/board/Board.java src/game/board/cell/Cell.java src/game/board/cell/product/*.java 
 * run      -> java -cp out game.Test
 
