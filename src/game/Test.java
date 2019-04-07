@@ -2,6 +2,7 @@ package game;
 
 import game.Game;
 import java.util.Scanner;
+import java.lang.Exception;
 
 
 public class Test {
@@ -20,12 +21,20 @@ public class Test {
         while ( active ) {
             System.out.print("Enter Command: ");
             String cmd = scanner.next();
-            commandCLI(cmd);
+            try {
+                commandCLI(cmd);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
     public static void commandCLI(String cmd) {
         switch(cmd) {
+            case "start":
+                System.out.println("Running Next Command");
+                Test.gameController.startGame();
+                break;
             case "next":
                 System.out.println("Running Next Command");
                 // code block for changing teams this step will be ran by the game engine

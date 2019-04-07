@@ -9,18 +9,21 @@ public class Game {
     private String currentTeam;
     // teams can be fed in using stdin at a later stage for more than 2 players
     private String listOfTeams[] = {"Microsoft", "Apple"};
+    private Board board;
 
     public void startGame()
     {
-        numberOfTeams = listOfTeams.length;
-
+        this.numberOfTeams = listOfTeams.length;
+        System.out.println("17");
         // randomly select a team to go first
         Random rand = new Random(); 
-        currentTeam = listOfTeams[rand.nextInt(numberOfTeams - 1)];
-
-        Board board = new Board();
-        board.initialiseCells();
-        board.mapDirection();
+        this.currentTeam = this.listOfTeams[rand.nextInt(this.numberOfTeams - 1)];
+        System.out.println("21");
+        this.board = new Board();
+        this.board.initialiseCells();
+        System.out.println("24");
+        this.board.mapDirection();
+        System.out.println("26");
     }
 
     public String nextPlayer()

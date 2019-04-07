@@ -160,6 +160,7 @@ public class Board {
             Cells[14][14].setDirections("u");
 
         } catch (Exception ex) {
+            ex.printStackTrace();
             System.out.println(ex.toString());
         }
     }
