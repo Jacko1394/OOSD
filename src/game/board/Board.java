@@ -36,9 +36,9 @@ public class Board {
     }
     private void initialiseCells() 
     {
-        for (int i = 0; i < Cells.length - 1; i++)
+        for (int i = 0; i < Cells.length; i++)
         {
-            for (int j = 0; j < Cells[i].length - 1; j++)
+            for (int j = 0; j < Cells[i].length; j++)
             { 
                 System.out.println(String.format("Configuring Cell[%d][%d] with conf %s ", i, j, conf[i][j]));
                 Cells[i][j] = new Cell();

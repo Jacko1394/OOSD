@@ -48,9 +48,9 @@ public class Main extends Application {
 //            }
 //        }
 //
-        for (int i = 0; i < board.Cells.length - 1; i++)
+        for (int i = 0; i < board.Cells.length; i++)
         {
-            for (int j = 0; j < board.Cells[i].length - 1; j++)
+            for (int j = 0; j < board.Cells[i].length; j++)
             {
 
                 var rec = (Pane)FXMLLoader.load(getClass().getResource("board/cell/cell.fxml"));
