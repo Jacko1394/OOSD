@@ -27,13 +27,7 @@ public class Cell {
 
     public void setDirections(String directions)
     {
-        // indicates cell exists
-        this.isSet = true;
-        String[] direction = directions.split(",");
-        for (int i = 0; i < direction.length; i++)
-        {
-            this.directions[i] = direction[i].charAt(0);
-        }
+        this.directions = directions.toCharArray();
     }
 
     public void setProduct(Product product) {

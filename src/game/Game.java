@@ -11,19 +11,17 @@ public class Game {
     private String listOfTeams[] = {"Microsoft", "Apple"};
     private Board board;
 
+    public Game() {
+
+    }
+
     public void startGame()
     {
         this.numberOfTeams = listOfTeams.length;
-        System.out.println("17");
         // randomly select a team to go first
         Random rand = new Random(); 
         this.currentTeam = this.listOfTeams[rand.nextInt(this.numberOfTeams - 1)];
-        System.out.println("21");
         this.board = new Board();
-        this.board.initialiseCells();
-        System.out.println("24");
-        this.board.mapDirection();
-        System.out.println("26");
     }
 
     public String nextPlayer()

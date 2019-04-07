@@ -8,12 +8,17 @@ import java.lang.Exception;
 public class Test {
 
 
-    private static Game gameController = new Game();
+    private static Game gameController;
     private static Boolean active = true;
 
     public static void main(String[] args) {
         System.out.println("Hello World!"); // Display the string.
-        startCLI();
+        if (args.length >= 1 && args[0].equals("a")) {
+            autoTest();
+        } else {
+            startCLI();
+        }
+        
     }
 
     public static void startCLI() {
@@ -27,12 +32,14 @@ public class Test {
                 e.printStackTrace();
             }
         }
+        scanner.close();
     }
 
     public static void commandCLI(String cmd) {
         switch(cmd) {
             case "start":
-                System.out.println("Running Next Command");
+                System.out.println("Running Start Command");
+                Test.gameController = new Game();
                 Test.gameController.startGame();
                 break;
             case "next":
@@ -54,11 +61,21 @@ public class Test {
                 commandHelp();
           }
     }
+    public static void autoTest() {
+        commandCLI("start");
+        commandCLI("roll");
+        commandCLI("next");
+        commandCLI("roll");
+        commandCLI("next");
+        commandCLI("roll");
+        commandCLI("exit");
+    }
 
     public static void commandHelp() {
         System.out.println("");
         System.out.println("Help Menu");
-        System.out.println("> next ");
+        System.out.println("> start");
+        System.out.println("> next");
         System.out.println("> roll");
         System.out.println("> exit");
         System.out.println("> help");
