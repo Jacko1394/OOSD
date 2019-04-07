@@ -5,7 +5,7 @@ import java.util.Random;
 // base class:
 public abstract class Product {
     
-    public abstract int[] dice;
+    public int[] dice;
 
     public int[] getDice(){
         return this.dice;
