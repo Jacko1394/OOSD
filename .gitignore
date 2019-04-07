@@ -90,3 +90,8 @@ fabric.properties
 .idea/caches/build_file_checksums.ser
 
 # javafx-sdk-11.0.2/
+
+.idea/
+
+
+.vscode/*
