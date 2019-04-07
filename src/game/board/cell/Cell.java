@@ -27,8 +27,11 @@ public class Cell {
 
     public void setDirections(String directions)
     {
-        this.isSet = true;
+        
         this.directions = directions.toCharArray();
+        if(this.directions[0] != '_') {
+            this.isSet = true;
+        }
     }
 
     public void setProduct(Product[] product) {
