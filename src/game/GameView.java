@@ -6,7 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class GameController extends Application {
+public class GameView extends Application {
 
     public static Game game = new Game();
 

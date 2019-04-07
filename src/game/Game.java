@@ -20,8 +20,6 @@ public class Game {
         Random rand = new Random(); 
         currentTeam = listOfTeams[rand.nextInt(numberOfTeams - 1)];
 
-        BoardController.board.initialiseCells();
-
     }
 
     public String nextPlayer()

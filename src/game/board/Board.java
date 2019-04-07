@@ -28,7 +28,7 @@ public class Board {
                 , {"_", "_", "_", "_", "_", "_", "_", "u", "_", "_", "_", "_", "r", "r", "u"}  //14
             };
 
-    public void initialiseCells() 
+    public Board()
     {
         for (int i = 0; i < Cells.length; i++)
         {
