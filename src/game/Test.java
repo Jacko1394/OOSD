@@ -1,6 +1,5 @@
 package game;
 
-import game.Game;
 import java.util.Scanner;
 import java.lang.Exception;
 
@@ -72,14 +71,14 @@ public class Test {
     }
 
     public static void commandHelp() {
-        System.out.println("");
+        System.out.println();
         System.out.println("Help Menu");
         System.out.println("> start");
         System.out.println("> next");
         System.out.println("> roll");
         System.out.println("> exit");
         System.out.println("> help");
-        System.out.println("");
+        System.out.println();
     }
 
 }

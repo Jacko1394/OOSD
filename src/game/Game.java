@@ -7,7 +7,7 @@ public class Game {
 
     private String currentTeam;
     // teams can be fed in using stdin at a later stage for more than 2 players
-    private String listOfTeams[] = {"Microsoft", "Apple"};
+    private String[] listOfTeams = {"Microsoft", "Apple"};
     private int numberOfTeams;
     private Board board = new Board();
 

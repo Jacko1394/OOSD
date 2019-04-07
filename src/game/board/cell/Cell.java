@@ -15,12 +15,12 @@ public class Cell {
 
     }
 
-    public void addPiece()
+    public void addPiece(Product product)
     {
 
     }
 
-    public void removeProduct(Cell cell)
+    public void removeProduct(Product product)
     {
 
     }

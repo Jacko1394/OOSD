@@ -3,11 +3,11 @@ package game.board.cell.product;
 
 public class Mac extends AppleProducts {
 
-    public int[] dice = {1,2,3,4,5,6};
+    public static int[] dice = {1,2,3,4,5,6};
 
 
-    public Mac() {
-        super();
+    public Mac(int positionX, int positionY) {
+        super(dice, positionX, positionY);
     }
 
 

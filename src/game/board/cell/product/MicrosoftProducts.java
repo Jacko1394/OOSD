@@ -1,13 +1,12 @@
 package game.board.cell.product;
 
-import game.board.cell.product.Product;
-
 public abstract class MicrosoftProducts extends Product {
 
-    private String team = "Microsoft";
+
+    private static final String MICROSOFT = "Microsoft";
     
-    public MicrosoftProducts() {
-        super();
+    public MicrosoftProducts(int[] dice, int positionX, int positionY) {
+        super(dice, MICROSOFT, positionX, positionY);
     }
 
 }

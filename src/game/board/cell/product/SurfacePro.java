@@ -2,10 +2,10 @@ package game.board.cell.product;
 
 public class SurfacePro extends MicrosoftProducts {
 
-    public int[] dice = {1,2,3,4,5,6};
+    public static int[] dice = {1,2,3,4,5,6};
     
-    public SurfacePro() {
-        super();
+    public SurfacePro(int positionX, int positionY) {
+        super(dice, positionX, positionY);
     }
 
 }
