@@ -25,6 +25,35 @@ public class GameController extends Application {
 
     }
 
+    @FXML
+    public void initialize() throws Exception {
+        
+        Game game = new Game();
+        game.startGame();
+
+        for (int i = 0; i < game.getBoard().Cells.length; i++)
+        {
+            for (int j = 0; j < game.getBoard().Cells[i].length; j++)
+            {
+                var rec = (Pane) FXMLLoader.load(getClass().getResource("cell/cell.fxml"));
+
+                GridPane.setRowIndex(rec, i);
+                GridPane.setColumnIndex(rec, j);
+
+                try {
+
+                    if (game.getBoard().Cells[i][j].getIsSet()) {
+                        mainGrid.getChildren().add(rec);
+//                        System.out.println("YES");
+                    }
+                } catch (Exception e) {
+//                    System.out.println(e.toString());
+                }
+
+            }
+        }
+    }
+
     public static void main(String[] args) { launch(args); }
 
 }

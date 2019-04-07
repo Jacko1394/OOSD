@@ -32,19 +32,11 @@ public class Board {
         for (int i = 0; i < Cells.length; i++)
         {
             for (int j = 0; j < Cells[i].length; j++)
-            { 
+            {
                 Cells[i][j] = new Cell();
                 Cells[i][j].setDirections(mapConfig[i][j]);
             }
         }
-    }
-
-    public void movePiece() {
-
-    }
-
-    public void displayBoard() {
-
     }
 
     public boolean movePiece(Cell[][] startPoint, char direction) 

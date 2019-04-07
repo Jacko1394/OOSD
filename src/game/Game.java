@@ -9,8 +9,7 @@ public class Game {
     // teams can be fed in using stdin at a later stage for more than 2 players
     private String listOfTeams[] = {"Microsoft", "Apple"};
     private int numberOfTeams;
-
-    public static Board board = new Board();
+    private Board board = new Board();
 
     public void startGame()
     {
@@ -38,6 +37,11 @@ public class Game {
         }
 
         return nextPlayer;
+    }
+
+    public Board getBoard()
+    {
+        return this.board;
     }
 
     public int getNumberOfTeams() 
