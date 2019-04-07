@@ -1,8 +1,8 @@
 <?import javafx.scene.layout.GridPane?>
 
-<GridPane fx:controller="game.Controller"
+<GridPane xmlns:fx="http://javafx.com/fxml"
+          fx:controller="game.board.BoardView"
           fx:id="mainGrid"
-          xmlns:fx="http://javafx.com/fxml"
           alignment="center"
           hgap="4"
           vgap="4">

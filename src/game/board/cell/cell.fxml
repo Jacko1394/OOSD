@@ -1,21 +1,17 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.layout.HBox?>
 
-<Pane>
+<Pane xmlns:fx="http://javafx.com/fxml"
+      fx:controller="game.board.cell.CellView"
+      fx:id="cellPane">
 
     <Rectangle xmlns="http://javafx.com/javafx"
-               xmlns:fx="http://javafx.com/fxml"
-               fx:id="cell"
                width="40"
                height="40"/>
 
     <Rectangle xmlns="http://javafx.com/javafx"
-               xmlns:fx="http://javafx.com/fxml"
                x="2"
                y="2"
-               fx:id="cell2"
                fill="wheat"
                width="36"
                height="36"/>
