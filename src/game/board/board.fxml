@@ -2,9 +2,6 @@
 
 <BoardView xmlns:fx="http://javafx.com/fxml"
           fx:controller="game.board.BoardController"
-          fx:id="mainGrid"
-          alignment="center"
-          hgap="4"
-          vgap="4">
+          fx:id="mainGrid">
 
 </BoardView>
