@@ -10,6 +10,8 @@ public class Game {
     private String listOfTeams[] = {"Microsoft", "Apple"};
     private int numberOfTeams;
 
+    public static Board board = new Board();
+
     public void startGame()
     {
         numberOfTeams = listOfTeams.length;
@@ -17,6 +19,8 @@ public class Game {
         // randomly select a team to go first
         Random rand = new Random(); 
         currentTeam = listOfTeams[rand.nextInt(numberOfTeams - 1)];
+
+        board.initialiseCells();
 
     }
 

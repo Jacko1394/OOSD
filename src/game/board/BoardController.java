@@ -1,5 +1,7 @@
 package game.board;
 
+import game.Game;
+import game.Main;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.GridPane;
@@ -10,12 +12,10 @@ public class BoardController {
     @FXML
     private GridPane mainGrid;
 
-    private static Board board = new Board();
-
     @FXML
     public void initialize() throws Exception {
 
-        board.initialiseCells();
+        var board = Game.board;
 
         for (int i = 0; i < board.Cells.length; i++)
         {

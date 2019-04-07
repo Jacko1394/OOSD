@@ -8,6 +8,8 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
+    public static Game game = new Game();
+
     @Override
     public void start(Stage primaryStage) throws Exception {
 
@@ -19,7 +21,6 @@ public class Main extends Application {
         primaryStage.show();
 
         // game start
-        var game = new Game();
         game.startGame();
 
     }
