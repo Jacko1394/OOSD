@@ -14,6 +14,9 @@ public class GameController implements Initializable {
     @FXML
     private HBox mainView;
 
+    public Game getModel() { return game; }
+    public HBox getView() { return mainView; }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 

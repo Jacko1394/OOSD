@@ -12,7 +12,8 @@ public class BoardController implements Initializable {
 
     private Board board = new Board(); // the model
 
-    public Board getBoard() { return board; }
+    public Board getModel() { return board; }
+    public BoardView getView() { return mainGrid; }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

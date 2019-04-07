@@ -1,9 +1,7 @@
 package game.board;
 
-import game.board.cell.CellFactory;
-import javafx.fxml.FXMLLoader;
+import game.board.cell.CellView;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
 
 public class BoardView extends GridPane {
 
@@ -11,7 +9,7 @@ public class BoardView extends GridPane {
 
     public BoardView() throws Exception {
 
-        var board = controller.getBoard();
+        var board = controller.getModel();
 
         for (int i = 0; i < board.Cells.length; i++)
         {
@@ -20,11 +18,12 @@ public class BoardView extends GridPane {
 
                 if (board.Cells[i][j].getIsSet()) {
 
-                    var cell = CellFactory.CellView();
+                    var cell = CellView.NewCell();
 
                     GridPane.setRowIndex(cell, i);
                     GridPane.setColumnIndex(cell, j);
 
+                    // this
                     getChildren().add(cell);
                 }
 
@@ -34,7 +33,7 @@ public class BoardView extends GridPane {
 
     public void updateView(Board board) {
         //todo:
-        var b = controller.getBoard();
+        var b = controller.getModel();
     }
 
 }

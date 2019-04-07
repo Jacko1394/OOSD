@@ -1,12 +1,12 @@
 <?import javafx.scene.layout.*?>
 <?import game.board.BoardView?>
 
-<!--GameView-->
+<!--Application-->
 <?import javafx.scene.control.Label?>
 <HBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
       fx:id="mainView"
-      fx:controller="game.GameView"
+      fx:controller="game.GameController"
       alignment="CENTER">
 
     <Label text="HELLO"/>
