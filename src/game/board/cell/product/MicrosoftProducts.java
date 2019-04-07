@@ -2,7 +2,7 @@ package game.board.cell.product;
 
 import game.board.cell.product.Product;
 
-public class MicrosoftProducts extends Product {
+public abstract class MicrosoftProducts extends Product {
 
     private String team = "Microsoft";
     
