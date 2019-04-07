@@ -5,10 +5,15 @@ import java.util.Random;
 // base class:
 public abstract class Product {
     
-    public abstract int[] dice;
+    public int[] dice;
+    public String team;
 
     public int[] getDice(){
         return this.dice;
+    }
+
+    public String getTeam(){
+        return this.team;
     }
 
     public int rollDice() {
