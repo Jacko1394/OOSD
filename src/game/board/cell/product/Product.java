@@ -6,9 +6,14 @@ import java.util.Random;
 public abstract class Product {
     
     public int[] dice;
+    public String team;
 
     public int[] getDice(){
         return this.dice;
+    }
+
+    public String getTeam(){
+        return this.team;
     }
 
     public int rollDice() {
