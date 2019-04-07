@@ -15,7 +15,7 @@ public class GameView extends Application {
 
         // init main view
         Parent root = FXMLLoader.load(getClass().getResource("game.fxml"));
-        var scene = new Scene(root, 800, 1000);
+        var scene = new Scene(root, 1000, 1000);
         primaryStage.setTitle("Boom Sum");
         primaryStage.setScene(scene);
         primaryStage.show();

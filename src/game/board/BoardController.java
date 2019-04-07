@@ -9,7 +9,10 @@ public class BoardController implements Initializable {
 
     @FXML
     private BoardView mainGrid; // ref to fxml (a hardcoded-markup view file)
-    public Board board = new Board(); // the model
+
+    private Board board = new Board(); // the model
+
+    public Board getBoard() { return board; }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

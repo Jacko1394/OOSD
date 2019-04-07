@@ -2,7 +2,7 @@
 <?import javafx.scene.layout.Pane?>
 
 <Pane xmlns:fx="http://javafx.com/fxml"
-      fx:controller="game.board.cell.CellView"
+      fx:controller="game.board.cell.CellController"
       fx:id="cellPane">
 
     <Rectangle xmlns="http://javafx.com/javafx"

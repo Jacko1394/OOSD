@@ -4,7 +4,6 @@ import game.board.cell.product.Product;
 
 public class Cell {
 
-
     private char[] directions = new char[4];
 
     private boolean isSet = false;

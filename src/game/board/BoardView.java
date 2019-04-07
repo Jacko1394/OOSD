@@ -10,18 +10,20 @@ public class BoardView extends GridPane {
 
     public BoardView() throws Exception {
 
-        var board = controller.board;
+        var board = controller.getBoard();
 
         for (int i = 0; i < board.Cells.length; i++)
         {
             for (int j = 0; j < board.Cells[i].length; j++)
             {
-                var cell = (Pane) FXMLLoader.load(getClass().getResource("cell/cell.fxml"));
-
-                GridPane.setRowIndex(cell, i);
-                GridPane.setColumnIndex(cell, j);
 
                 if (board.Cells[i][j].getIsSet()) {
+
+                    var cell = (Pane)FXMLLoader.load(getClass().getResource("cell/cell.fxml"));
+
+                    GridPane.setRowIndex(cell, i);
+                    GridPane.setColumnIndex(cell, j);
+
                     getChildren().add(cell);
                 }
 
@@ -31,7 +33,7 @@ public class BoardView extends GridPane {
 
     public void updateView(Board board) {
         //todo:
-        controller.board = board;
+        var b = controller.getBoard();
     }
 
 }
