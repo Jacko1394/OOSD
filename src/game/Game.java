@@ -5,22 +5,20 @@ import java.util.Random;
 
 public class Game {
 
-    private int numberOfTeams;
     private String currentTeam;
     // teams can be fed in using stdin at a later stage for more than 2 players
     private String listOfTeams[] = {"Microsoft", "Apple"};
     private Board board;
 
     public Game() {
-
+        Random rand = new Random(); 
+        this.currentTeam = this.listOfTeams[rand.nextInt(this.getNumberOfTeams() - 1)];
+        this.board = new Board();
     }
 
     public void startGame()
     {
-       
-        Random rand = new Random(); 
-        this.currentTeam = this.listOfTeams[rand.nextInt(this.getNumberOfTeams() - 1)];
-        this.board = new Board();
+        
     }
 
     public String nextPlayer()
