@@ -17,10 +17,9 @@ public class Game {
 
     public void startGame()
     {
-        this.numberOfTeams = listOfTeams.length;
-        // randomly select a team to go first
+       
         Random rand = new Random(); 
-        this.currentTeam = this.listOfTeams[rand.nextInt(this.numberOfTeams - 1)];
+        this.currentTeam = this.listOfTeams[rand.nextInt(this.getNumberOfTeams() - 1)];
         this.board = new Board();
     }
 
@@ -42,12 +41,7 @@ public class Game {
 
     public int getNumberOfTeams() 
     {
-        return numberOfTeams;
-    }
-
-    public void setNumberOfTeams(int numberOfTeams) 
-    {
-        this.numberOfTeams = numberOfTeams;
+        return this.listOfTeams.length;
     }
 
     public String getCurrentTeam() 
