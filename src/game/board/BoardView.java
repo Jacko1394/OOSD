@@ -19,7 +19,6 @@ public class BoardView {
         {
             for (int j = 0; j < board.Cells[i].length; j++)
             {
-
                 var rec = (Pane) FXMLLoader.load(getClass().getResource("cell/cell.fxml"));
 
                 GridPane.setRowIndex(rec, i);
