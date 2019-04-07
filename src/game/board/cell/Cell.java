@@ -27,6 +27,7 @@ public class Cell {
 
     public void setDirections(String directions)
     {
+        this.isSet = true;
         this.directions = directions.toCharArray();
     }
 
