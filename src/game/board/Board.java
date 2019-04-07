@@ -6,9 +6,9 @@ public class Board {
 
     // 2d array of Cells = 15x15 board
     // mapped Cells[y]][x]
-    public static Cell[][] Cells = new Cell[15][15];
+    public Cell[][] Cells = new Cell[15][15];
 
-    public static String conf[][] = {
+    public String conf[][] = {
          {"_","_","_","d","l","l","l","ld","l","l","l","l","_","_","_"}  //0
         ,{"_","_","_","d","_","_","_","d","_","_","_","u","_","_","_"}  //1
         ,{"_","_","_","d","l","l","l","ld","_","_","_","ud","l","l","_"}  //2
@@ -28,10 +28,10 @@ public class Board {
 
     public Board() {
         initialiseCells();
-        initPeices(); 
+        initPieces();
     }
 
-    private void initPeices() {
+    private void initPieces() {
 
     }
     private void initialiseCells() 
@@ -40,9 +40,9 @@ public class Board {
         {
             for (int j = 0; j < Cells[i].length - 1; j++)
             { 
-                System.out.println(String.format("Configureing Cell[%d][%d] with conf %s ",i,j,Board.conf[i][j]));
-                Board.Cells[i][j] = new Cell();
-                Board.Cells[i][j].setDirections(Board.conf[i][j]);
+                System.out.println(String.format("Configuring Cell[%d][%d] with conf %s ", i, j, conf[i][j]));
+                Cells[i][j] = new Cell();
+                Cells[i][j].setDirections(conf[i][j]);
             }
         }
     }
