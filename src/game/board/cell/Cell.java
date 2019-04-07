@@ -4,7 +4,7 @@ import game.board.cell.product.Product;
 
 public class Cell {
 
-    private Product[] product = new Product[6];
+
     private char[] directions = new char[4];
 
     private boolean isSet = false;
@@ -32,14 +32,6 @@ public class Cell {
         if(this.directions[0] != '_') {
             this.isSet = true;
         }
-    }
-
-    public void setProduct(Product[] product) {
-        this.product = product;
-    }
-
-    public Product[] getProduct() {
-        return this.product;
     }
 
 
