@@ -5,15 +5,17 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 
-public class BoardView {
+public class BoardController {
 
     @FXML
     private GridPane mainGrid;
 
+    private static Board board = new Board();
+
     @FXML
     public void initialize() throws Exception {
 
-        var board = new Board();
+        board.initialiseCells();
 
         for (int i = 0; i < board.Cells.length; i++)
         {
