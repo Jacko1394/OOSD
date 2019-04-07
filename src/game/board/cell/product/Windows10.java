@@ -7,8 +7,8 @@ public class Windows10 extends Product {
     }
 
     @Override
-    public void init_dice(){
-        //TODO fill the custom dice
+    public int[] getDice(){
+        return new int[] {0,1,2,3,4,5,6};
     }
 
 }

@@ -12,7 +12,6 @@ public class Test {
     private static Boolean active = true;
 
     public static void main(String[] args) {
-        System.out.println("Hello World!"); // Display the string.
         if (args.length >= 1 && args[0].equals("a")) {
             autoTest();
         } else {
@@ -44,6 +43,7 @@ public class Test {
                 break;
             case "next":
                 System.out.println("Running Next Command");
+                Test.gameController.nextPlayer();
                 // code block for changing teams this step will be ran by the game engine
                 break;
             case "roll":
