@@ -10,9 +10,6 @@ import javafx.stage.Stage;
 
 public class GameView extends Application {
 
-    @FXML
-    private HBox mainView;
-
     private GameController controller = new GameController();
 
     @Override

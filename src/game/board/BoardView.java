@@ -1,5 +1,6 @@
 package game.board;
 
+import game.board.cell.CellFactory;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
@@ -19,7 +20,7 @@ public class BoardView extends GridPane {
 
                 if (board.Cells[i][j].getIsSet()) {
 
-                    var cell = (Pane)FXMLLoader.load(getClass().getResource("cell/cell.fxml"));
+                    var cell = CellFactory.CellView();
 
                     GridPane.setRowIndex(cell, i);
                     GridPane.setColumnIndex(cell, j);

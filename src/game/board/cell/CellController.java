@@ -12,9 +12,9 @@ public class CellController implements Initializable {
     @FXML
     private Pane cellPane;
 
-    private Cell cell = new Cell();
-
-    public Cell getCell() { return cell; }
+//    private CellController() {
+//
+//    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

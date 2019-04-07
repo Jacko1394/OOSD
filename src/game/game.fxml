@@ -10,6 +10,7 @@
       alignment="CENTER">
 
     <Label text="HELLO"/>
+    <Label text="WORLD"/>
 
     <VBox alignment="CENTER">
         <BoardView/>
