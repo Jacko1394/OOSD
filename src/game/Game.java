@@ -1,6 +1,8 @@
 package game;
 
 import game.board.Board;
+import game.board.BoardController;
+
 import java.util.Random;
 
 public class Game {
@@ -9,7 +11,6 @@ public class Game {
     // teams can be fed in using stdin at a later stage for more than 2 players
     private String[] listOfTeams = {"Microsoft", "Apple"};
     private int numberOfTeams;
-    private Board board = new Board();
 
     public void startGame()
     {
@@ -19,7 +20,7 @@ public class Game {
         Random rand = new Random(); 
         currentTeam = listOfTeams[rand.nextInt(numberOfTeams - 1)];
 
-        board.initialiseCells();
+        BoardController.board.initialiseCells();
 
     }
 
@@ -37,11 +38,6 @@ public class Game {
         }
 
         return nextPlayer;
-    }
-
-    public Board getBoard()
-    {
-        return this.board;
     }
 
     public int getNumberOfTeams() 
