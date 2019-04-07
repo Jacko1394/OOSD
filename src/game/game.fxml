@@ -1,7 +1,4 @@
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.control.Button?>
 
 <GridPane fx:controller="game.Controller"
           fx:id="mainGrid"
@@ -9,7 +6,5 @@
           alignment="center"
           hgap="4"
           vgap="4">
-
-<!--    <Button text="swag"/>-->
 
 </GridPane>
