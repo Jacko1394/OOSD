@@ -29,4 +29,9 @@ public class BoardView extends GridPane {
         }
     }
 
+    public void updateView(Board board) {
+        //todo:
+        controller.board = board;
+    }
+
 }

@@ -8,16 +8,13 @@ import javafx.stage.Stage;
 
 public class GameView extends Application {
 
-    public static Game game = new Game();
+    private GameController controller = new GameController();
 
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        // game start
-        game.startGame();
-
         // init main view
-        Parent root = FXMLLoader.load(getClass().getResource("board/board.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("game.fxml"));
         var scene = new Scene(root, 800, 1000);
         primaryStage.setTitle("Boom Sum");
         primaryStage.setScene(scene);

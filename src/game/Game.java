@@ -12,7 +12,7 @@ public class Game {
     private String[] listOfTeams = {"Microsoft", "Apple"};
     private int numberOfTeams;
 
-    public void startGame()
+    public Game()
     {
         numberOfTeams = listOfTeams.length;
 

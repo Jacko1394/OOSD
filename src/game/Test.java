@@ -38,7 +38,7 @@ public class Test {
             case "start":
                 System.out.println("Running Start Command");
                 Test.gameController = new Game();
-                Test.gameController.startGame();
+//                Test.gameController.startGame();
                 break;
             case "next":
                 System.out.println("Running Next Command");
