@@ -3,7 +3,7 @@ package game.board.cell.product;
 public class SurfacePro extends Product {
 
     public SurfacePro() {
-
+        super();
     }
 
     @Override

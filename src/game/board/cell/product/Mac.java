@@ -3,7 +3,7 @@ package game.board.cell.product;
 public class Mac extends Product {
 
     public Mac() {
-
+        super();
     }
 
     @Override

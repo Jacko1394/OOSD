@@ -3,7 +3,7 @@ package game.board.cell.product;
 public class Terminal extends Product {
 
     public Terminal() {
-
+        super();
     }
 
     @Override

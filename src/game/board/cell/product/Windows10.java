@@ -3,7 +3,7 @@ package game.board.cell.product;
 public class Windows10 extends Product {
 
     public Windows10() {
-
+        super();
     }
 
     @Override

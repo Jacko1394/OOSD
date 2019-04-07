@@ -3,7 +3,7 @@ package game.board.cell.product;
 public class Powershell extends Product {
 
     public Powershell() {
-
+        super();
     }
 
     @Override
