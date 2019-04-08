@@ -34,12 +34,16 @@ public class GameController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        try {
-            var image = new Image(new FileInputStream("src/logos/macOS.png"));
-            img.setImage(image);
-        } catch (Exception ex) {
-            System.out.println(ex.toString());
-        }
+//        try {
+//            var image = new Image(new FileInputStream("src/logos/macOS.png"));
+//            img.setImage(image);
+//        } catch (Exception ex) {
+//            System.out.println(ex.toString());
+//        }
+
+//        for (var) {
+//
+//        }
 
     }
 
