@@ -1,4 +1,4 @@
-package game.board.cell.product.dice;
+package game.board.product.dice;
 
 public interface Rollable {
     int roll();

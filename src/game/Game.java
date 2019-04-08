@@ -1,7 +1,9 @@
 package game;
 
 import game.board.Board;
+import game.board.product.Product;
 import game.board.BoardController;
+import game.board.cell.Cell;
 
 import java.util.Random;
 
@@ -11,15 +13,15 @@ public class Game {
     // teams can be fed in using stdin at a later stage for more than 2 players
     private String[] listOfTeams = {"Microsoft", "Apple"};
     private int numberOfTeams;
+    private Board board = new Board();
 
-    public Game()
+    public void startGame()
     {
         numberOfTeams = listOfTeams.length;
 
         // randomly select a team to go first
         Random rand = new Random(); 
         currentTeam = listOfTeams[rand.nextInt(numberOfTeams - 1)];
-
     }
 
     public String nextPlayer()
@@ -34,9 +36,17 @@ public class Game {
                 nextPlayer = listOfTeams[i + 1];
             }
         }
-
         return nextPlayer;
     }
+
+    // returns whether the cell is a choice block or not
+    public String getCellType(Product product)
+    {
+        Cell cell = board.getCell(product.getPositionX(), product.getPositionY());
+        return cell.getCellType();
+    }
+
+
 
     public int getNumberOfTeams() 
     {
@@ -61,5 +71,13 @@ public class Game {
     public void setListOfTeams(String[] listOfTeams) 
     {
         this.listOfTeams = listOfTeams;
+    }
+
+    public Board getBoard() {
+        return board;
+    }
+
+    public void setBoard(Board board) {
+        this.board = board;
     }
 }

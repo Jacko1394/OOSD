@@ -1,6 +1,6 @@
 package game.board.cell;
 
-import game.board.cell.product.Product;
+import game.board.product.Product;
 
 import java.lang.reflect.Array;
 import java.util.Arrays;
@@ -10,10 +10,11 @@ public class Cell {
     private char[] directions = new char[4];
 
     private boolean isSet = false;
-    public boolean getIsSet() {return isSet;}
+    
 
     //Assumes a max number of 6 products on the board
     private Product[] products = new Product[6];
+    private String cellType;
 
     public Product[] getProducts()
     {
@@ -57,5 +58,19 @@ public class Cell {
         }
     }
 
+    public boolean getIsSet() 
+    {
+        return isSet;
+    }
+
+    public char[] getDirections()
+    {
+        return this.directions;
+    }
+
+    public String getCellType()
+    {
+        return this.cellType;
+    }
 
 }

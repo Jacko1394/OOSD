@@ -1,6 +1,6 @@
-package game.board.cell.product;
+package game.board.product;
 
-import game.board.cell.product.dice.Dice;
+import game.board.product.dice.Dice;
 
 import java.util.Random;
 

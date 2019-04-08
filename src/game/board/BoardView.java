@@ -1,7 +1,7 @@
 package game.board;
 
 import game.board.cell.CellView;
-import game.board.cell.product.Product;
+import game.board.product.Product;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;

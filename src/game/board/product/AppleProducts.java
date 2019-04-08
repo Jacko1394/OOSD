@@ -1,4 +1,4 @@
-package game.board.cell.product;
+package game.board.product;
 
 public abstract class AppleProducts extends Product {
 

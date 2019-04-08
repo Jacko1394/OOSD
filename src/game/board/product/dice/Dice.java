@@ -1,7 +1,7 @@
-package game.board.cell.product.dice;
+package game.board.product.dice;
 
 import java.util.Random;
-import game.board.cell.product.dice.Rollable;
+import game.board.product.dice.Rollable;
 
 public class Dice implements Rollable{
 
