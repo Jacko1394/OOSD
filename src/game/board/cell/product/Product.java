@@ -1,11 +1,13 @@
 package game.board.cell.product;
 
+import game.board.cell.product.dice.Dice;
+
 import java.util.Random;
 
 // base class:
 public abstract class Product {
     
-    private int[] dice;
+    private Dice dice;
     private String team;
     private int positionX;
     private int positionY;
@@ -13,25 +15,18 @@ public abstract class Product {
     public String imgPath;
 
     public Product(int[] dice, String team, int positionX, int positionY) {
-        this.dice = dice;
+        this.dice = new Dice(dice);
         this.team = team;
         this.positionX = positionX;
         this.positionY = positionY;
     }
 
-    public int[] getDice(){
+    public Dice getDice(){
         return this.dice;
     }
 
     public String getTeam(){
         return this.team;
-    }
-
-    public int rollDice() {
-        int[] dice = this.getDice();
-        Random rand = new Random(); 
-        int rolled = dice[rand.nextInt(dice.length - 1)];
-        return rolled;
     }
 
     public int getPositionY() {

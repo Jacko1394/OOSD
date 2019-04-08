@@ -2,6 +2,9 @@ package game.board.cell;
 
 import game.board.cell.product.Product;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 public class Cell {
 
     private char[] directions = new char[4];
@@ -9,25 +12,30 @@ public class Cell {
     private boolean isSet = false;
     public boolean getIsSet() {return isSet;}
 
-    private Product product;
+    //Assumes a max number of 6 products on the board
+    private Product[] products = new Product[6];
 
-    public Product getProduct() {
-        return product;
+    public Product[] getProducts()
+    {
+        return this.products;
     }
 
-    public void emptyCell()
-    {
 
+    public void addProduct(Product product)
+    {
+        int index = Arrays.asList(this.products).indexOf(null);
+        this.products[index] = product;
     }
 
-    public void setProduct(Product product)
+    public void removeProduct(Product product)
     {
-        this.product = product;
+        int index = Arrays.asList(this.products).indexOf(product);
+        if( index > -1 ){
+            this.products[index] = null;
+        } else {
+            System.out.println("That product is not in this cell");
     }
 
-    public void removeProduct()
-    {
-        this.product = null;
     }
 
     public void setDirections(String directions)

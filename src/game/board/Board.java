@@ -45,15 +45,18 @@ public class Board {
 
     private void initialisePieces()
     {
-        Mac mac = new Mac(7,0);
-        OSX osx = new OSX(0, 7);
-        SurfacePro surfacePro = new SurfacePro(14,7);
-        Windows10 windows10 = new Windows10(7,14);
+        ProductFactory productFactory = new ProductFactory();
 
-        Cells[mac.getPositionX()][mac.getPositionY()].setProduct(mac);
-        Cells[osx.getPositionX()][osx.getPositionY()].setProduct(osx);
-        Cells[surfacePro.getPositionX()][surfacePro.getPositionY()].setProduct(surfacePro);
-        Cells[windows10.getPositionX()][windows10.getPositionY()].setProduct(windows10);
+        Product mac = productFactory.getProduct("mac",7,0);
+        Product osx = productFactory.getProduct("osx",0,7);
+
+        Product surfacePro = productFactory.getProduct("surfacepro",14,7);
+        Product windows10 = productFactory.getProduct("windows10",7,14);
+
+        Cells[mac.getPositionX()][mac.getPositionY()].addProduct(mac);
+        Cells[osx.getPositionX()][osx.getPositionY()].addProduct(osx);
+        Cells[surfacePro.getPositionX()][surfacePro.getPositionY()].addProduct(surfacePro);
+        Cells[windows10.getPositionX()][windows10.getPositionY()].addProduct(windows10);
 
     }
 
@@ -61,37 +64,29 @@ public class Board {
     {
         int currentPositionX = product.getPositionX();
         int currentPositionY = product.getPositionY();
-        int newPositionY;
-        int newPositionX;
+        int newPositionY = currentPositionY;
+        int newPositionX = currentPositionX;
 
         switch(direction) {
             case 'l':
                 newPositionY = currentPositionY - 1;
-                product.setPositionY(newPositionY);
-                Cells[currentPositionX][currentPositionY].removeProduct();
-                Cells[currentPositionX][newPositionY].setProduct(product);
                 break;
             case 'r':
                 newPositionY = currentPositionY + 1;
-                product.setPositionY(newPositionY);
-                Cells[currentPositionX][currentPositionY].removeProduct();
-                Cells[currentPositionX][newPositionY].setProduct(product);
                 break;
             case 'd':
                 newPositionX = currentPositionX + 1;
-                product.setPositionX(newPositionX);
-                Cells[currentPositionX][currentPositionY].removeProduct();
-                Cells[newPositionX][currentPositionY].setProduct(product);
                 break;
             case 'u':
                 newPositionX = currentPositionX - 1;
-                product.setPositionX(newPositionX);
-                Cells[currentPositionX][currentPositionY].removeProduct();
-                Cells[newPositionX][currentPositionY].setProduct(product);
                 break;
             default:
                 return false;
         }
+        product.setPositionY(newPositionY);
+        product.setPositionX(newPositionX);
+        Cells[currentPositionX][currentPositionY].removeProduct(product);
+        Cells[newPositionX][newPositionY].addProduct(product);
         return true;
     }
 
