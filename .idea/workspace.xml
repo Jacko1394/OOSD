@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a9a7cc26-257c-47dd-a854-b79d05c91709" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/game/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/board/BoardView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/board/BoardView.java" afterDir="false" />
-    </list>
+    <list default="true" id="a9a7cc26-257c-47dd-a854-b79d05c91709" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
