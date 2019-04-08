@@ -16,6 +16,10 @@ public class BoardView extends GridPane {
             for (int j = 0; j < board.Cells[i].length; j++)
             {
 
+                if (board.Cells[i][j].getProduct() != null) {
+                    System.out.println(board.Cells[i][j].getProduct());
+                }
+
                 if (board.Cells[i][j].getIsSet()) {
 
                     var cell = CellView.NewCell();

@@ -8,7 +8,7 @@ public class Board {
     // 2d array of Cells = 15x15 board
     // mapped Cells[y]][x]
     public Cell[][] Cells = new Cell[15][15];
-    private Product[] product = new Product[6];
+//    private Product[] product = new Product[6];
     public String[][] mapConfig =
             {
                 //0   1   2   3   4   5   6   7    8   9  10  11  12  13  14
@@ -40,17 +40,21 @@ public class Board {
                 Cells[i][j].setDirections(mapConfig[i][j]);
             }
         }
+        initialisePieces();
     }
 
-    public void initialisePieces()
+    private void initialisePieces()
     {
-     Mac mac = new Mac(7,0);
+        Mac mac = new Mac(7,0);
         OSX osx = new OSX(0, 7);
         SurfacePro surfacePro = new SurfacePro(14,7);
         Windows10 windows10 = new Windows10(7,14);
 
-        Product[] data = {mac,osx,surfacePro,windows10};
-        setProduct(data);
+        Cells[mac.getPositionX()][mac.getPositionY()].setProduct(mac);
+        Cells[osx.getPositionX()][osx.getPositionY()].setProduct(osx);
+        Cells[surfacePro.getPositionX()][surfacePro.getPositionY()].setProduct(surfacePro);
+        Cells[windows10.getPositionX()][windows10.getPositionY()].setProduct(windows10);
+
     }
 
     public boolean movePiece(Product product, char direction)
@@ -59,30 +63,31 @@ public class Board {
         int currentPositionY = product.getPositionY();
         int newPositionY;
         int newPositionX;
+
         switch(direction) {
             case 'l':
                 newPositionY = currentPositionY - 1;
                 product.setPositionY(newPositionY);
-                Cells[currentPositionX][currentPositionY].removeProduct(product);
-                Cells[currentPositionX][newPositionY].addPiece(product);
+                Cells[currentPositionX][currentPositionY].removeProduct();
+                Cells[currentPositionX][newPositionY].setProduct(product);
                 break;
             case 'r':
                 newPositionY = currentPositionY + 1;
                 product.setPositionY(newPositionY);
-                Cells[currentPositionX][currentPositionY].removeProduct(product);
-                Cells[currentPositionX][newPositionY].addPiece(product);
+                Cells[currentPositionX][currentPositionY].removeProduct();
+                Cells[currentPositionX][newPositionY].setProduct(product);
                 break;
             case 'd':
                 newPositionX = currentPositionX + 1;
                 product.setPositionX(newPositionX);
-                Cells[currentPositionX][currentPositionY].removeProduct(product);
-                Cells[newPositionX][currentPositionY].addPiece(product);
+                Cells[currentPositionX][currentPositionY].removeProduct();
+                Cells[newPositionX][currentPositionY].setProduct(product);
                 break;
             case 'u':
                 newPositionX = currentPositionX - 1;
                 product.setPositionX(newPositionX);
-                Cells[currentPositionX][currentPositionY].removeProduct(product);
-                Cells[newPositionX][currentPositionY].addPiece(product);
+                Cells[currentPositionX][currentPositionY].removeProduct();
+                Cells[newPositionX][currentPositionY].setProduct(product);
                 break;
             default:
                 return false;
@@ -90,15 +95,12 @@ public class Board {
         return true;
     }
 
-    public void setProduct(Product[] product) {
-        this.product = product;
-    }
-
-    public Product[] getProduct() {
-        return this.product;
-    }
-
-
-
-
+//    public void setProduct(Product[] product) {
+//        this.product = product;
+//    }
+//
+//    public Product[] getProduct() {
+//        return this.product;
+//    }
+    
 }

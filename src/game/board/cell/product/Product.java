@@ -36,16 +36,16 @@ public abstract class Product {
         return positionY;
     }
 
+    public int getPositionX() {
+        return positionX;
+    }
+
     public void setPositionX(int position) {
         this.positionX = position;
     }
 
     public void setPositionY(int position) {
         this.positionY = position;
-    }
-
-    public int getPositionX() {
-        return positionX;
     }
 
 }

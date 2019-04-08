@@ -9,19 +9,25 @@ public class Cell {
     private boolean isSet = false;
     public boolean getIsSet() {return isSet;}
 
+    private Product product;
+
+    public Product getProduct() {
+        return product;
+    }
+
     public void emptyCell()
     {
 
     }
 
-    public void addPiece(Product product)
+    public void setProduct(Product product)
     {
-
+        this.product = product;
     }
 
-    public void removeProduct(Product product)
+    public void removeProduct()
     {
-
+        this.product = null;
     }
 
     public void setDirections(String directions)

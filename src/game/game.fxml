@@ -3,14 +3,21 @@
 
 <!--Application-->
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
 <HBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
       fx:id="mainView"
       fx:controller="game.GameController"
       alignment="CENTER">
 
-    <Label text="HELLO"/>
-    <Label text="WORLD"/>
+    <VBox alignment="TOP_LEFT">
+        <Label text="PLAYER 1"/>
+        <Label text="Apple"/>
+        <ImageView fx:id="img"/>
+
+        <Label text="PLAYER 2"/>
+        <Label text="Microsoft"/>
+    </VBox>
 
     <VBox alignment="CENTER">
         <BoardView/>
