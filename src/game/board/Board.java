@@ -8,7 +8,7 @@ public class Board {
     // 2d array of Cells = 15x15 board
     // mapped Cells[y]][x]
     public Cell[][] cells = new Cell[15][15];
-//    private Product[] product = new Product[6];
+    //private Product[] product = new Product[6];
     public String[][] mapConfig =
             {
                  //0    1    2    3    4    5    6    7   8    9   10   11   12   13   14
@@ -37,12 +37,19 @@ public class Board {
             {
                 cells[i][j] = new Cell();
                 cells[i][j].setDirections(mapConfig[i][j]);
+                if (cells[i][j].getDirections().length > 1)
+                {
+                    cells[i][j].setCellType("choice");
+                }
+                else
+                {
+                    cells[i][j].setCellType("event");
+                }
             }
         }
-        initialisePieces();
     }
 
-    private void initialisePieces()
+    public void initialisePieces()
     {
         ProductFactory productFactory = new ProductFactory();
 

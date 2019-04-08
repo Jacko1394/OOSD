@@ -73,4 +73,9 @@ public class Cell {
         return this.cellType;
     }
 
+    public void setCellType(String cellType)
+    {
+        this.cellType = cellType;
+    }
+
 }
