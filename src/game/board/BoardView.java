@@ -1,6 +1,7 @@
 package game.board;
 
 import game.board.cell.CellView;
+import game.board.cell.product.Product;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -24,22 +25,26 @@ public class BoardView extends GridPane {
                 if (board.Cells[i][j].getIsSet()) {
 
                     CellView cell = FXMLLoader.load(getClass().getResource("cell/cell.fxml"));
-                    ImageView img = new ImageView();
-                    if (board.Cells[i][j].getProduct() != null) {
+                    if (board.Cells[i][j].isEmpty() == false ) {
 
-                        System.out.println(board.Cells[i][j].getProduct());
+                        System.out.println(board.Cells[i][j].getProducts());
 //                        cell.getController().setImg(board.Cells[i][j].getProduct().imgPath);
                         try {
-                            var image = new Image(new FileInputStream(board.Cells[i][j].getProduct().imgPath));
-                            img.setImage(image);
-                            GridPane.setRowIndex(img, i);
-                            GridPane.setColumnIndex(img, j);
-                            img.setFitHeight(40);
-                            img.setFitWidth(40);
-                            getChildren().add(img);
+                            // This for loop is for each of the products that could be in the cell
+                            for( Product prod : board.Cells[i][j].getProducts() ){
+                                ImageView img = new ImageView();
+                                var image = new Image(new FileInputStream(prod.imgPath));
+                                img.setImage(image);
+                                GridPane.setRowIndex(img, i);
+                                GridPane.setColumnIndex(img, j);
+                                img.setFitHeight(20);
+                                img.setFitWidth(20);
+                                getChildren().add(img);
+
+                            }
                             continue;
                         } catch (Exception ex) {
-                            System.out.println(ex.toString());
+                            ex.printStackTrace();
                         }
                     }
 

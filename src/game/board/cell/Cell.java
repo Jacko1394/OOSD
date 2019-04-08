@@ -17,7 +17,8 @@ public class Cell {
 
     public Product[] getProducts()
     {
-        return this.products;
+        // returns an array of products with out the nulls
+        return Arrays.stream(this.products).filter(x -> x != null).toArray(Product[] :: new);
     }
 
 
@@ -25,6 +26,15 @@ public class Cell {
     {
         int index = Arrays.asList(this.products).indexOf(null);
         this.products[index] = product;
+    }
+
+    public boolean isEmpty() {
+        for(Product prod : this.products ){
+            if ( prod != null ){
+                return false;
+            }
+        }
+        return true;
     }
 
     public void removeProduct(Product product)
