@@ -6,6 +6,7 @@ public class SurfacePro extends MicrosoftProducts {
     
     public SurfacePro(int positionX, int positionY) {
         super(dice, positionX, positionY);
+        imgPath = "src/logos/surface.png";
     }
 
 }

@@ -1,9 +1,10 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane xmlns:fx="http://javafx.com/fxml"
-      fx:controller="game.board.cell.CellController"
-      fx:id="cellPane">
+<?import game.board.cell.CellView?>
+<CellView xmlns:fx="http://javafx.com/fxml"
+          fx:controller="game.board.cell.CellController"
+          fx:id="cellPane">
 
     <Rectangle xmlns="http://javafx.com/javafx"
                fx:id="bg"
@@ -18,4 +19,4 @@
                width="36"
                height="36"/>
 
-</Pane>
+</CellView>

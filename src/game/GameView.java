@@ -8,8 +8,6 @@ public class GameView extends HBox {
 
     public GameView() throws Exception {
 
-        var childs = getChildren();
-
 
 
     }

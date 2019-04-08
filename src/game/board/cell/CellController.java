@@ -11,7 +11,7 @@ import java.util.ResourceBundle;
 public class CellController implements Initializable {
 
     @FXML
-    private Pane cellPane;
+    private CellView cellPane;
     @FXML
     private Rectangle bg;
     @FXML

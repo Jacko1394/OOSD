@@ -10,6 +10,8 @@ public abstract class Product {
     private int positionX;
     private int positionY;
 
+    public String imgPath;
+
     public Product(int[] dice, String team, int positionX, int positionY) {
         this.dice = dice;
         this.team = team;

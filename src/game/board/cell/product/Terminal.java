@@ -6,6 +6,7 @@ public class Terminal extends AppleProducts {
 
     public Terminal(int positionX, int positionY) {
         super(dice,positionX, positionY);
+        imgPath = "src/logos/terminal.png";
     }
 
 }

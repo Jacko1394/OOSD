@@ -6,5 +6,6 @@ public class OSX extends AppleProducts {
 
     public OSX(int positionX, int positionY) {
         super(dice, positionX, positionY);
+        imgPath = "src/logos/macOS.png";
     }
 }
