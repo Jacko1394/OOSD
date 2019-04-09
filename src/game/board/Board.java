@@ -5,13 +5,12 @@ import game.board.product.*;
 
 public class Board {
 
-    // 2d array of Cells = 15x15 board
-    // mapped Cells[y]][x]
     public Cell[][] cells = new Cell[15][15];
-    //private Product[] product = new Product[6];
+    private Product[] products = new Product[6];
+    // 2d array of Cells = 15x15 board
     public String[][] mapConfig =
             {
-                 //0    1    2    3    4    5    6    7   8    9   10   11   12   13   14
+                // 0    1    2    3    4    5    6    7   8    9   10   11   12   13   14
                  {"_", "_", "_", "_", "_", "_", "_", "d","_", "_", "_", "_", "_", "_", "_"}  //0
                 ,{"_", "_", "_", "d", "l", "l", "l", "l", "l", "l", "l", "l", "_", "_", "_"}  //1
                 , {"_", "d", "l", "l", "_", "_", "_", "_", "_", "_", "_", "ud", "l", "l", "_"}  //2
@@ -104,6 +103,17 @@ public class Board {
     public Cell getCell(int x, int y)
     {
         return cells[x][y];
+    }
+
+    public Boolean selectProduct(Product product)
+    {
+        /*
+        if ()
+        {
+
+        }
+        */
+        return false;
     }
     
 }

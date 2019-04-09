@@ -2,7 +2,7 @@ package game.board.product;
 
 public class OSX extends AppleProducts {
 
-    public static  int[] dice = {1,2,3,4,5,6};
+    public static  int[] dice = {2,2,3,3,5,5};
 
     public OSX(int positionX, int positionY) {
         super(dice, positionX, positionY);
