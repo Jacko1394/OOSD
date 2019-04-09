@@ -17,21 +17,21 @@ public class BoardView extends GridPane {
 
         var board = controller.getModel();
 
-        for (int i = 0; i < board.Cells.length; i++)
+        for (int i = 0; i < board.cells.length; i++)
         {
-            for (int j = 0; j < board.Cells[i].length; j++)
+            for (int j = 0; j < board.cells[i].length; j++)
             {
 
-                if (board.Cells[i][j].getIsSet()) {
+                if (board.cells[i][j].getIsSet()) {
 
                     CellView cell = FXMLLoader.load(getClass().getResource("cell/cell.fxml"));
-                    if (board.Cells[i][j].isEmpty() == false ) {
+                    if (!board.cells[i][j].isEmpty()) {
 
-                        System.out.println(board.Cells[i][j].getProducts());
+//                        System.out.println(board.cells[i][j].getProducts());
 //                        cell.getController().setImg(board.Cells[i][j].getProduct().imgPath);
                         try {
                             // This for loop is for each of the products that could be in the cell
-                            for( Product prod : board.Cells[i][j].getProducts() ){
+                            for( Product prod : board.cells[i][j].getProducts() ){
                                 ImageView img = new ImageView();
                                 var image = new Image(new FileInputStream(prod.imgPath));
                                 img.setImage(image);
