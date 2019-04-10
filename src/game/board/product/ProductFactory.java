@@ -2,13 +2,8 @@ package game.board.product;
 
 public class ProductFactory {
     //use getShape method to get object of type shape
-    public Product generateProduct(String productType,int x,int y)
+    public Product generateProduct(String productType, int x, int y)
     {
-        if(productType == null)
-        {
-            return null;
-        }
-
         if(productType.equalsIgnoreCase("MAC"))
         {
             return new Mac(x,y);
