@@ -4,6 +4,7 @@ import game.board.product.Product;
 
 import java.lang.reflect.Array;
 import java.util.Arrays;
+import java.util.ArrayList;
 
 public class Cell {
 
@@ -11,27 +12,27 @@ public class Cell {
 
     private boolean isSet = false;
     
-
-    //Assumes a max number of 6 products on the board
-    private Product[] products = new Product[6];
+    private ArrayList<Product> products = new ArrayList();
     private String cellType;
 
-    public Product[] getProducts()
+    public ArrayList<Product> getProducts()
     {
         // returns an array of products with out the nulls
-        return Arrays.stream(this.products).filter(x -> x != null).toArray(Product[] :: new);
+        return products;
     }
 
 
     public void addProduct(Product product)
     {
-        int index = Arrays.asList(this.products).indexOf(null);
-        this.products[index] = product;
+        products.add(product);
     }
 
-    public boolean isEmpty() {
-        for(Product prod : this.products ){
-            if ( prod != null ){
+    public boolean isEmpty()
+    {
+        for(Product prod : this.products )
+        {
+            if ( prod != null )
+            {
                 return false;
             }
         }
@@ -40,18 +41,11 @@ public class Cell {
 
     public void removeProduct(Product product)
     {
-        int index = Arrays.asList(this.products).indexOf(product);
-        if( index > -1 ){
-            this.products[index] = null;
-        } else {
-            System.out.println("That product is not in this cell");
-    }
-
+        products.remove(products.indexOf(product));
     }
 
     public void setDirections(String directions)
     {
-        
         this.directions = directions.toCharArray();
         if(this.directions[0] != '_') {
             this.isSet = true;
