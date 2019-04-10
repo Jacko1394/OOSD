@@ -1,13 +1,16 @@
 package game.board;
 
+import java.util.ArrayList;
+
 import game.board.cell.Cell;
 import game.board.product.*;
 
 public class Board {
 
-    public Cell[][] cells = new Cell[15][15];
-    private Product[] products = new Product[6];
     // 2d array of Cells = 15x15 board
+    public Cell[][] cells = new Cell[15][15];
+    
+    // configuration of static board
     public String[][] mapConfig =
             {
                 // 0    1    2    3    4    5    6    7   8    9   10   11   12   13   14
@@ -65,34 +68,42 @@ public class Board {
 
     }
 
-    public boolean movePiece(Product product, char direction)
+    public boolean movePiece(Product product, char direction, String currentTeam)
     {
         int currentPositionX = product.getPositionX();
         int currentPositionY = product.getPositionY();
         int newPositionY = currentPositionY;
         int newPositionX = currentPositionX;
 
-        switch(direction) {
-            case 'l':
-                newPositionY = currentPositionY - 1;
-                break;
-            case 'r':
-                newPositionY = currentPositionY + 1;
-                break;
-            case 'd':
-                newPositionX = currentPositionX + 1;
-                break;
-            case 'u':
-                newPositionX = currentPositionX - 1;
-                break;
-            default:
-                return false;
+        if (product.getTeam().equalsIgnoreCase(currentTeam))
+        {
+            switch(direction) {
+                case 'l':
+                    newPositionY = currentPositionY - 1;
+                    break;
+                case 'r':
+                    newPositionY = currentPositionY + 1;
+                    break;
+                case 'd':
+                    newPositionX = currentPositionX + 1;
+                    break;
+                case 'u':
+                    newPositionX = currentPositionX - 1;
+                    break;
+            }
+
+            product.setPositionY(newPositionY);
+            product.setPositionX(newPositionX);
+            cells[currentPositionX][currentPositionY].removeProduct(product);
+            cells[newPositionX][newPositionY].addProduct(product);
+            return true;
         }
-        product.setPositionY(newPositionY);
-        product.setPositionX(newPositionX);
-        cells[currentPositionX][currentPositionY].removeProduct(product);
-        cells[newPositionX][newPositionY].addProduct(product);
-        return true;
+        else
+        {
+            // not the correct players product, no movement should occur
+            return false;
+        }
+        
     }
 
     public char[] getDirections(int xCoordinate, int yCoordinate)
@@ -103,17 +114,6 @@ public class Board {
     public Cell getCell(int x, int y)
     {
         return cells[x][y];
-    }
-
-    public Boolean selectProduct(Product product)
-    {
-        /*
-        if ()
-        {
-
-        }
-        */
-        return false;
     }
     
 }

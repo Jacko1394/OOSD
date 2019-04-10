@@ -17,10 +17,9 @@ public class Cell {
 
     public ArrayList<Product> getProducts()
     {
-        // returns an array of products with out the nulls
+        // returns an arraylist of products
         return products;
     }
-
 
     public void addProduct(Product product)
     {
