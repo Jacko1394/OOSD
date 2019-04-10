@@ -11,6 +11,7 @@ public abstract class Product {
     private String team;
     private int positionX;
     private int positionY;
+    protected String productID;
 
     public String imgPath;
 
@@ -43,6 +44,11 @@ public abstract class Product {
 
     public void setPositionY(int position) {
         this.positionY = position;
+    }
+
+    public String getID()
+    {
+        return productID;
     }
 
 }
