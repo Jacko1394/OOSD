@@ -40,9 +40,7 @@ public class BoardView extends GridPane {
                                 img.setFitHeight(20);
                                 img.setFitWidth(20);
                                 getChildren().add(img);
-
                             }
-                            continue;
                         } catch (Exception ex) {
                             ex.printStackTrace();
                         }
