@@ -23,13 +23,9 @@ public class GameController implements Initializable {
     public Game getModel() { return game; }
     public HBox getView() { return mainView; }
 
-    public GameController() throws Exception {
-        System.out.println("Working Directory = " +
-                System.getProperty("user.dir"));
-
-
-//        img = new ImageView(image);
-    }
+//    public GameController() throws Exception {
+//
+//    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
