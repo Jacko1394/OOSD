@@ -5,12 +5,10 @@
     </CLASSES>
     <JAVADOC />
     <NATIVE>
+      <root url="file://$PROJECT_DIR$/javafx-sdk-12/lib" />
       <root url="file://$PROJECT_DIR$/javafx-sdk-12/bin" />
     </NATIVE>
-    <SOURCES>
-      <root url="file://$PROJECT_DIR$/javafx-sdk-12/lib" />
-    </SOURCES>
+    <SOURCES />
     <jarDirectory url="file://$PROJECT_DIR$/javafx-sdk-12/lib" recursive="false" />
-    <jarDirectory url="file://$PROJECT_DIR$/javafx-sdk-12/lib" recursive="false" type="SOURCES" />
   </library>
 </component>
