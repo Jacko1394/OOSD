@@ -20,7 +20,7 @@
     </VBox>
 
     <VBox alignment="CENTER">
-        <BoardView/>
+        <fx:include fx:id="count" source="board/board.fxml" />
     </VBox>
 
 </HBox>
