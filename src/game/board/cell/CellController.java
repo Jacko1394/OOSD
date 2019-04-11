@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
 
 import java.net.URL;
@@ -31,7 +32,7 @@ public class CellController implements Initializable {
             @Override
             public void handle(MouseEvent e) {
                 System.out.println("Hello World");
-//                circle.setFill(Color.DARKSLATEBLUE);
+                fg.setFill(Paint.valueOf("red"));
             }
 
 
