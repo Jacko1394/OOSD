@@ -1,7 +1,5 @@
 package game.board;
 
-import java.util.ArrayList;
-
 import game.board.cell.Cell;
 import game.board.product.*;
 
@@ -68,41 +66,32 @@ public class Board {
 
     }
 
-    public boolean movePiece(Product product, char direction, String currentTeam)
+    public void movePiece(Product product, char direction, String currentTeam)
     {
         int currentPositionX = product.getPositionX();
         int currentPositionY = product.getPositionY();
         int newPositionY = currentPositionY;
         int newPositionX = currentPositionX;
 
-        if (product.getTeam().equalsIgnoreCase(currentTeam))
-        {
-            switch(direction) {
-                case 'l':
-                    newPositionY = currentPositionY - 1;
-                    break;
-                case 'r':
-                    newPositionY = currentPositionY + 1;
-                    break;
-                case 'd':
-                    newPositionX = currentPositionX + 1;
-                    break;
-                case 'u':
-                    newPositionX = currentPositionX - 1;
-                    break;
-            }
+        switch(direction) {
+            case 'l':
+                newPositionY = currentPositionY - 1;
+                break;
+            case 'r':
+                newPositionY = currentPositionY + 1;
+                break;
+            case 'd':
+                newPositionX = currentPositionX + 1;
+                break;
+            case 'u':
+                newPositionX = currentPositionX - 1;
+                break;
+        }
 
-            product.setPositionY(newPositionY);
-            product.setPositionX(newPositionX);
-            cells[currentPositionX][currentPositionY].removeProduct(product);
-            cells[newPositionX][newPositionY].addProduct(product);
-            return true;
-        }
-        else
-        {
-            // not the correct players product, no movement should occur
-            return false;
-        }
+        product.setPositionY(newPositionY);
+        product.setPositionX(newPositionX);
+        cells[currentPositionX][currentPositionY].removeProduct(product);
+        cells[newPositionX][newPositionY].addProduct(product);
         
     }
 
