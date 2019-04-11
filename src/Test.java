@@ -1,4 +1,4 @@
-package game;
+import game.Game;
 
 import java.util.Scanner;
 import java.lang.Exception;
@@ -42,7 +42,7 @@ public class Test {
                 break;
             case "next":
                 System.out.println("Running Next Command");
-                Test.gameController.nextPlayer();
+                Test.gameController.nextTeam();
                 // code block for changing teams this step will be ran by the game engine
                 break;
             case "roll":

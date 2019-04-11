@@ -26,19 +26,19 @@ public class Game {
         board.initialisePieces();
     }
 
-    public String nextPlayer()
+    public String nextTeam()
     {
         // assume next player is the first player in array, as we compare all but last player
-        String nextPlayer = listOfTeams[0];
+        var team = listOfTeams[0];
 
         for (int i = 0; i < listOfTeams.length - 1; i++)
         {
             if (listOfTeams[i].equals(currentTeam))
             {
-                nextPlayer = listOfTeams[i + 1];
+                team = listOfTeams[i + 1];
             }
         }
-        return nextPlayer;
+        return team;
     }
 
     // returns whether the cell is a choice block or not

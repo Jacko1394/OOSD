@@ -1,5 +1,3 @@
-package game;
-
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -11,7 +9,7 @@ public class Application extends javafx.application.Application {
     public void start(Stage primaryStage) throws Exception {
 
         // init main view
-        Parent gameView = FXMLLoader.load(getClass().getResource("game.fxml"));
+        Parent gameView = FXMLLoader.load(getClass().getResource("game/game.fxml"));
         var scene = new Scene(gameView, 1200, 700);
         primaryStage.setTitle("Boom Sum");
         primaryStage.setScene(scene);

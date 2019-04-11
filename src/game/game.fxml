@@ -1,9 +1,7 @@
 <?import javafx.scene.layout.*?>
-<?import game.board.BoardView?>
-
-<!--Application-->
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.ImageView?>
+
 <HBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
       fx:id="mainView"
@@ -19,8 +17,7 @@
         <Label text="Microsoft"/>
     </VBox>
 
-    <VBox alignment="CENTER">
-        <fx:include fx:id="count" source="board/board.fxml" />
-    </VBox>
+    <VBox alignment="CENTER"
+          fx:id="vbox"/>
 
 </HBox>

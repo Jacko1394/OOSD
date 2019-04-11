@@ -1,7 +1,7 @@
-<?import game.board.BoardView?>
+<?import javafx.scene.layout.GridPane?>
 
-<BoardView xmlns:fx="http://javafx.com/fxml"
+<GridPane xmlns:fx="http://javafx.com/fxml"
           fx:controller="game.board.BoardController"
           fx:id="mainGrid">
 
-</BoardView>
+</GridPane>

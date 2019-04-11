@@ -12,7 +12,7 @@ public class Cell {
 
     private boolean isSet = false;
     
-    private ArrayList<Product> products = new ArrayList();
+    private ArrayList<Product> products = new ArrayList<>();
     private String cellType;
 
     public ArrayList<Product> getProducts()
