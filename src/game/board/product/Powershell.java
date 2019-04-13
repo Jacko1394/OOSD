@@ -6,7 +6,7 @@ public class Powershell extends MicrosoftProducts {
     
     public Powershell(int positionX, int positionY) {
         super(dice, positionX, positionY);
-        imgPath = "src/logos/powershell.png";
+        imgPath = "src/logosml/powershell.png";
         productID = "Powershell";
     }
 

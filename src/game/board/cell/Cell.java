@@ -2,8 +2,6 @@ package game.board.cell;
 
 import game.board.product.Product;
 
-import java.lang.reflect.Array;
-import java.util.Arrays;
 import java.util.ArrayList;
 
 public class Cell {
@@ -40,7 +38,7 @@ public class Cell {
 
     public void removeProduct(Product product)
     {
-        products.remove(products.indexOf(product));
+        products.remove(product);
     }
 
     public void setDirections(String directions)

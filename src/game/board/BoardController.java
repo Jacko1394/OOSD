@@ -1,13 +1,14 @@
 package game.board;
 
-import game.board.cell.CellView;
 import game.board.product.Product;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 
 import java.io.FileInputStream;
 import java.net.URL;
@@ -50,7 +51,7 @@ public class BoardController implements Initializable {
 
                     if (board.cells[i][j].getIsSet()) {
 
-                        CellView cell = FXMLLoader.load(getClass().getResource("cell/cell.fxml"));
+                        Pane cell = FXMLLoader.load(getClass().getResource("cell/cell.fxml"));
                         if (!board.cells[i][j].isEmpty()) {
 
                             try {
@@ -62,8 +63,8 @@ public class BoardController implements Initializable {
                                     img.setImage(image);
                                     GridPane.setRowIndex(img, i);
                                     GridPane.setColumnIndex(img, j);
-                                    img.setFitHeight(30);
-                                    img.setFitWidth(30);
+                                    img.setFitHeight(48);
+                                    img.setFitWidth(48);
                                     mainGrid.getChildren().add(img);
                                 }
                             } catch (Exception ex) {

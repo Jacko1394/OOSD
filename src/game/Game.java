@@ -12,16 +12,13 @@ public class Game {
     private String currentTeam;
     // teams can be fed in using stdin at a later stage for more than 2 players
     private String[] listOfTeams = {"Microsoft", "Apple"};
-    private int numberOfTeams;
     private Board board = new Board();
 
     public void startGame()
     {
-        numberOfTeams = listOfTeams.length;
-
         // randomly select a team to go first
         Random rand = new Random(); 
-        currentTeam = listOfTeams[rand.nextInt(numberOfTeams - 1)];
+        currentTeam = listOfTeams[rand.nextInt(getNumberOfTeams() - 1)];
 
         board.initialisePieces();
     }
@@ -38,7 +35,9 @@ public class Game {
                 team = listOfTeams[i + 1];
             }
         }
-        return team;
+        // getting the next Team updates currentTeam
+        currentTeam = team;
+        return currentTeam;
     }
 
     // returns whether the cell is a choice block or not
@@ -60,8 +59,6 @@ public class Game {
         }
     }
 
-
-
     public int getNumberOfTeams() 
     {
         return this.listOfTeams.length;
@@ -72,10 +69,10 @@ public class Game {
         return currentTeam;
     }
 
-    public void setCurrentTeam(String currentTeam) 
-    {
-        this.currentTeam = currentTeam;
-    }
+//    public void setCurrentTeam(String currentTeam)
+//    {
+//        this.currentTeam = currentTeam;
+//    }
 
     public String[] getListOfTeams() 
     {
@@ -91,7 +88,7 @@ public class Game {
         return board;
     }
 
-    public void setBoard(Board board) {
-        this.board = board;
-    }
+//    public void setBoard(Board board) {
+//        this.board = board;
+//    }
 }

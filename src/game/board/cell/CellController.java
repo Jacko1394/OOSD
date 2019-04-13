@@ -14,7 +14,7 @@ import java.util.ResourceBundle;
 public class CellController implements Initializable {
 
     @FXML
-    private CellView cellPane;
+    private Pane cellPane;
     @FXML
     private Rectangle bg;
     @FXML
@@ -23,8 +23,6 @@ public class CellController implements Initializable {
     private double getThickness() {
         return bg.getHeight() - fg.getHeight();
     };
-
-    private Cell cell = new Cell();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
