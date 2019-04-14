@@ -69,6 +69,7 @@ public class Board {
             this.cells[x.getPositionX()][x.getPositionY()].addProduct(x);
         }
         this.currentProduct = this.products.get(0);
+
     }
 
 

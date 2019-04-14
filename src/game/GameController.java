@@ -8,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
 import java.net.URL;
@@ -35,9 +36,13 @@ public class GameController implements Initializable {
 
     @FXML
     private VBox controlView;
+    @FXML
+    private VBox teamsView;
+    @FXML
+    private Label currentTurnLabel;
 
-    public Game getModel() { return game; }
-    public HBox getView() { return mainView; }
+//    public Game getModel() { return game; }
+//    public HBox getView() { return mainView; }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -53,11 +58,37 @@ public class GameController implements Initializable {
 
             boardVbox.getChildren().add(board);
 
+            // add team controls:
+            var count = 1;
+            for (var t : game.getListOfTeams()) {
+
+                var labelView = (Label)FXMLLoader.load(getClass().getResource("bigLabel.fxml"));
+                labelView.setText("Team " + count++ + " - " + t);
+                teamsView.getChildren().add(labelView);
+
+            }
+
+            // add gap
+            controlView.getChildren().add(new Pane());
+
+            currentTurnLabel.setText("Current turn: " + game.getCurrentTeam());
+
+
         } catch (Exception ex) {
             ex.printStackTrace();
         }
 
     }
+
+//    private void runGame() {
+//
+//        var gameover = false;
+//
+//        while (!gameover) {
+//            // current Team
+//        }
+//
+//    }
 
     @FXML
     public void rollClicked() {

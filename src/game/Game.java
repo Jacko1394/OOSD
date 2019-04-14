@@ -12,7 +12,11 @@ public class Game {
     private String currentTeam;
     // teams can be fed in using stdin at a later stage for more than 2 players
     private String[] listOfTeams = {"Microsoft", "Apple"};
+
     private Board board = new Board();
+    public Board getBoard() {
+        return board;
+    }
 
     public void startGame()
     {
@@ -85,11 +89,4 @@ public class Game {
         this.listOfTeams = listOfTeams;
     }
 
-    public Board getBoard() {
-        return board;
-    }
-
-//    public void setBoard(Board board) {
-//        this.board = board;
-//    }
 }
