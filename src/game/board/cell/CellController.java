@@ -1,6 +1,5 @@
 package game.board.cell;
 
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.image.Image;
@@ -107,32 +106,12 @@ public class CellController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-//        EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
-//            @Override
-//            public void handle(MouseEvent e) {
-//                System.out.println("Hello World  "+cell.getCellColor());
-//                fg.setFill(Paint.valueOf(cell.getCellColor()));
-//            }
-//
-//
-//        };
-//
-////        scene.addEventFilter(eventHandler);
-//
-//        cellPane.setOnMouseClicked(eventHandler);
+
     }
 
 
     public void clickCell(MouseEvent event) {
-        //System.out.println("Hello World  "+this.cell.getCellColor());
-//        fg.setFill(Paint.valueOf(this.cell.getCellColor()));
-    }
 
-//    public void setSize(int x, int y) {
-//        bg.setWidth(x + getThickness());
-//        bg.setHeight(y + getThickness());
-//        fg.setWidth(x);
-//        fg.setHeight(y);
-//    }
+    }
 
 }

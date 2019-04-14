@@ -2,6 +2,7 @@ package game;
 
 import game.board.BoardController;
 
+import game.board.cell.Cell;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.PauseTransition;
@@ -88,16 +89,6 @@ public class GameController implements Initializable {
 
     }
 
-//    private void runGame() {
-//
-//        var gameover = false;
-//
-//        while (!gameover) {
-//            // current Team
-//        }
-//
-//    }
-
     @FXML
     public void rollClicked() {
 
@@ -114,29 +105,11 @@ public class GameController implements Initializable {
             var rolled = product.getDice().roll();
             diceNumber.setText("" + rolled);
 
-            // For debugging
-            //info.setText("Current Team:"+game.getCurrentTeam()+" \n Product Team:"+product.getTeam() +"\n Current Product:"+product.getID()+"\n Dice Loaded:"+product.getDice().getConf());
-
-            //TODO move the product
             for (var i = rolled; i > 0; i--) {
-                var oldCell = board.getCurrentCell();
                 var newCell = game.getBoard().movePiece(product, board.getCurrentCell().getDirections()[0]);
                 board.setCurrentCell(newCell);
-                boardController.RenderCell(oldCell);
-                boardController.RenderCell(newCell);
-
-//                Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1)));
-//                timeline.play();
-                Timeline t = new Timeline(
-                        new KeyFrame(Duration.seconds(0)),
-                        new KeyFrame(Duration.seconds(1))
-                );
-                t.setAutoReverse(true);
-                t.setCycleCount(Timeline.INDEFINITE);
-                t.play();
             }
-
-            //TODO change teams
+            boardController.initialize(null, null);
             currentTurnLabel.setText("Current team: " + game.nextTeam());
 
             button.setDisable(false);
