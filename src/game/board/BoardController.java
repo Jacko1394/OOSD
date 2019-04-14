@@ -129,6 +129,7 @@ public class BoardController implements Initializable {
         if (cell.getProducts().size() > 0){
 
             prod = cell.getProducts().get(0);
+            this.board.setCurrentProduct(prod);
 
             if (prod.getTeam().equals(currentGame.getCurrentTeam())) {
                 cell.setCellColor(Cell.selectColor);

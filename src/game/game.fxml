@@ -60,6 +60,7 @@
             </Pane>
 
             <Button text="Roll"
+                    fx:id="button"
                     onAction="#rollClicked"
                     scaleX="2"
                     scaleY="2"/>

@@ -73,7 +73,7 @@ public class Board {
     }
 
 
-    public void movePiece(Product product, char direction, String currentTeam)
+    public void movePiece(Product product, char direction)
     {
         int currentPositionX = product.getPositionX();
         int currentPositionY = product.getPositionY();
@@ -131,7 +131,7 @@ public class Board {
         } else {
             this.currentCellItem = 0;
         }
-        // ?
+        // ? temporary
         this.currentCell = cell;
 
     }

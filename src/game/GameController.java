@@ -5,6 +5,7 @@ import game.board.BoardController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -40,6 +41,8 @@ public class GameController implements Initializable {
     private VBox teamsView;
     @FXML
     private Label currentTurnLabel;
+    @FXML
+    private Button button;
 
 //    public Game getModel() { return game; }
 //    public HBox getView() { return mainView; }
@@ -53,7 +56,7 @@ public class GameController implements Initializable {
             var loader = new FXMLLoader(getClass().getResource("board/board.fxml"));
             GridPane board = loader.load();
 
-            var boardController = (BoardController)loader.getController();
+            BoardController boardController = loader.getController();
             boardController.setCurrentGame(game);
 
             boardVbox.getChildren().add(board);
@@ -62,7 +65,7 @@ public class GameController implements Initializable {
             var count = 1;
             for (var t : game.getListOfTeams()) {
 
-                var labelView = (Label)FXMLLoader.load(getClass().getResource("bigLabel.fxml"));
+                Label labelView = FXMLLoader.load(getClass().getResource("bigLabel.fxml"));
                 labelView.setText("Team " + count++ + " - " + t);
                 teamsView.getChildren().add(labelView);
 
@@ -89,6 +92,15 @@ public class GameController implements Initializable {
 
     @FXML
     public void rollClicked() {
+
+        var board = game.getBoard();
+
+        if (board.getCurrentProduct().getTeam() != game.getCurrentTeam()) {
+            return;
+        }
+
+        button.setDisable(true);
+
         var product = game.getBoard().getCurrentProduct();
         var rolled = product.getDice().roll();
         diceNumber.setText("" + rolled);
@@ -97,10 +109,17 @@ public class GameController implements Initializable {
         //info.setText("Current Team:"+game.getCurrentTeam()+" \n Product Team:"+product.getTeam() +"\n Current Product:"+product.getID()+"\n Dice Loaded:"+product.getDice().getConf());
 
         //TODO move the product
+//        for (var i = rolled; i > 0; i--) {
+//
+//        }
 
+        var piece = board.getCurrentProduct();
+        game.getBoard().movePiece(piece, board.getCurrentCell().getDirections()[0]);
 
 
         //TODO change teams
+        currentTurnLabel.setText("Current team: " + game.nextTeam());
+
     }
 
 }
