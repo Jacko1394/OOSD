@@ -3,10 +3,17 @@ package game.board;
 import game.board.cell.Cell;
 import game.board.product.*;
 
+import java.util.ArrayList;
+
 public class Board {
 
     // 2d array of Cells = 15x15 board
     public Cell[][] cells = new Cell[15][15];
+
+    private ArrayList<Product> products = new ArrayList<>();
+    private Product currentProduct;
+    private Cell currentCell;
+    private int currentCellItem = 0;
     
     // configuration of static board
     public String[][] mapConfig =
@@ -47,24 +54,23 @@ public class Board {
                 }
             }
         }
+        this.currentCell = this.cells[0][0];
     }
 
     public void initialisePieces()
     {
         ProductFactory productFactory = new ProductFactory();
+        this.products.add(productFactory.generateProduct("mac",7,1));
+        this.products.add(productFactory.generateProduct("osx",0,7));
+        this.products.add(productFactory.generateProduct("surfacepro",14,7));
+        this.products.add(productFactory.generateProduct("windows10",7,14));
 
-        Product mac = productFactory.generateProduct("mac",7,1);
-        Product osx = productFactory.generateProduct("osx",0,7);
-
-        Product surfacePro = productFactory.generateProduct("surfacepro",14,7);
-        Product windows10 = productFactory.generateProduct("windows10",7,14);
-
-        cells[mac.getPositionX()][mac.getPositionY()].addProduct(mac);
-        cells[osx.getPositionX()][osx.getPositionY()].addProduct(osx);
-        cells[surfacePro.getPositionX()][surfacePro.getPositionY()].addProduct(surfacePro);
-        cells[windows10.getPositionX()][windows10.getPositionY()].addProduct(windows10);
-
+        for ( Product x : this.products ) {
+            this.cells[x.getPositionX()][x.getPositionY()].addProduct(x);
+        }
+        this.currentProduct = this.products.get(0);
     }
+
 
     public void movePiece(Product product, char direction, String currentTeam)
     {
@@ -104,5 +110,27 @@ public class Board {
     {
         return cells[x][y];
     }
+
+    public Product getCurrentProduct() {  return this.currentProduct ;}
+
+    public void setCurrentProduct(Product product) { this.currentProduct = product ;}
+
+    public Cell getCurrentCell() { return this.currentCell ;}
+
+    public void setCurrentCell(Cell cell) { this.currentCellItem = 0; this.currentCell = cell ;}
+
+    public Cell[] getPossibleCells(Cell productCell,int distance) {
+        // TODO search through paths and return possible cells that a person could move to
+        // TODO these cells can then be colored blue and selected by the user
+        return null;
+    }
+    public void updateCurrentCellItem(Cell cell) {
+        if ( this.currentCellItem < cell.getProducts().size() - 1 ) {
+            this.currentCellItem ++;
+        } else {
+            this.currentCellItem = 0;
+        }
+    }
+    public int getCurrentCellItem(){ return this.currentCellItem; }
     
 }

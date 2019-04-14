@@ -1,11 +1,14 @@
 package game.board;
 
+import game.board.cell.Cell;
 import game.board.cell.CellController;
 import game.board.product.Product;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
@@ -19,6 +22,9 @@ public class BoardController implements Initializable {
 
     @FXML
     private GridPane mainGrid; // ref to fxml (a hardcoded-markup view file)
+
+    @FXML
+    private Label info;
 
     private Board board;// copy of current the model
 
@@ -64,9 +70,10 @@ public class BoardController implements Initializable {
 
                         // add its view to this view
                         var cellView = cellController.getView();
-                        GridPane.setRowIndex(cellView, i);
-                        GridPane.setColumnIndex(cellView, j);
-                        mainGrid.getChildren().add(cellView);
+//                        mainGrid.setRowIndex(cellView, i);
+//                        mainGrid.setColumnIndex(cellView, j);
+//                        mainGrid.getChildren().add(cellView);
+                        mainGrid.add(cellView,j,i);
 
                     }
                 }
@@ -75,6 +82,47 @@ public class BoardController implements Initializable {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
+
+    }
+
+
+    public void clickGrid(javafx.scene.input.MouseEvent event) {
+        Node clickedNode = event.getPickResult().getIntersectedNode();
+        if (clickedNode != mainGrid) {
+            // click on descendant node
+            Node parent = clickedNode.getParent();
+            while (parent != mainGrid) {
+                clickedNode = parent;
+                parent = clickedNode.getParent();
+            }
+            Integer colIndex = GridPane.getColumnIndex(clickedNode);
+            Integer rowIndex = GridPane.getRowIndex(clickedNode);
+            //System.out.println("Mouse clicked cell: " + colIndex + " And: " + rowIndex);
+            clickedCell(colIndex,rowIndex);
+
+        }
+
+    }
+
+    public void clickedCell(Integer x , Integer y) {
+        var cell = this.board.getCell(x,y);
+        if( cell == this.board.getCurrentCell() ) {
+            // this is for the times when there are more than one product in a cell
+            //System.out.println("Updating cell item");
+            this.board.updateCurrentCellItem(cell);
+        } else {
+            this.board.getCurrentCell().setCellColor(Cell.defaultColor);
+            this.board.setCurrentCell(cell);
+            cell.setCellColor("red");
+
+        }
+        if ( cell.getProducts().size() > 0 ){
+            this.board.setCurrentProduct(cell.getProducts().get(this.board.getCurrentCellItem()));
+        }
+
+
+        // For debugging
+        //info.setText("Cell x:"+x+" y:"+y+" color:"+cell.getCellColor()+"\n"+"Product "+this.board.getCurrentProduct());
 
     }
 

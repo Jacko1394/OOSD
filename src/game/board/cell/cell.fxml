@@ -4,7 +4,8 @@
 <?import javafx.scene.image.ImageView?>
 <Pane xmlns:fx="http://javafx.com/fxml"
       fx:controller="game.board.cell.CellController"
-      fx:id="cellPane">
+      fx:id="cellPane"
+      onMouseClicked="#clickCell">
 
     <Rectangle xmlns="http://javafx.com/javafx"
                fx:id="bg"

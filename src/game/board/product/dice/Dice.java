@@ -1,5 +1,6 @@
 package game.board.product.dice;
 
+import java.util.Arrays;
 import java.util.Random;
 import game.board.product.dice.Rollable;
 
@@ -13,7 +14,11 @@ public class Dice implements Rollable{
 
     public int roll() {
         Random rand = new Random();
-        int rolled = this.config[rand.nextInt(this.config.length - 1)];
+        int rolled = this.config[rand.nextInt(this.config.length)];
         return rolled;
+    }
+
+    public String getConf() {
+        return Arrays.toString(this.config);
     }
 }

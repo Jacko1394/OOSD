@@ -9,6 +9,9 @@ public class Cell {
     private char[] directions = new char[4];
 
     private boolean isSet = false;
+
+    private String color = "wheat";
+    public final static String defaultColor = "wheat";
     
     private ArrayList<Product> products = new ArrayList<>();
     private String cellType;
@@ -68,5 +71,9 @@ public class Cell {
     {
         this.cellType = cellType;
     }
+
+    public void setCellColor(String color){ System.out.println("updateing color  "+color); this.color = color; }
+    public String getCellColor() { return this.color;}
+
 
 }

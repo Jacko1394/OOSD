@@ -31,6 +31,9 @@ public class GameController implements Initializable {
     private Label diceNumber;
 
     @FXML
+    private Label info;
+
+    @FXML
     private VBox controlView;
 
     public Game getModel() { return game; }
@@ -58,8 +61,18 @@ public class GameController implements Initializable {
 
     @FXML
     public void rollClicked() {
-        var r = new Random();
-        diceNumber.setText("" + r.nextInt(9));
+        var product = game.getBoard().getCurrentProduct();
+        var rolled = product.getDice().roll();
+        diceNumber.setText("" + rolled);
+
+        // For debugging
+        //info.setText("Current Team:"+game.getCurrentTeam()+" \n Product Team:"+product.getTeam() +"\n Current Product:"+product.getID()+"\n Dice Loaded:"+product.getDice().getConf());
+
+        //TODO move the product
+
+
+
+        //TODO change teams
     }
 
 }

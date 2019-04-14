@@ -47,6 +47,7 @@ public class Game {
         return cell.getCellType();
     }
 
+
     public boolean checkProductTeamIsCurrent(Product product)
     {
         if (product.getTeam().equalsIgnoreCase(this.currentTeam))

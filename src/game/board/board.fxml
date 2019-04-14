@@ -1,7 +1,22 @@
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.text.Font?>
+
+
+
 
 <GridPane xmlns:fx="http://javafx.com/fxml"
           fx:controller="game.board.BoardController"
-          fx:id="mainGrid">
+          fx:id="mainGrid"
+          onMouseClicked="#clickGrid">
+
+    <Label fx:id="info"
+           text="5"
+           translateX="60"
+           translateY="10">
+        <font>
+            <Font name="Comic Sans MS" size="15"/>
+        </font>
+    </Label>
 
 </GridPane>
