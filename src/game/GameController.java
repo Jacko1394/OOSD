@@ -54,7 +54,7 @@ public class GameController implements Initializable {
             GridPane board = loader.load();
 
             var boardController = (BoardController)loader.getController();
-            boardController.setModel(game.getBoard());
+            boardController.setCurrentGame(game);
 
             boardVbox.getChildren().add(board);
 
@@ -67,9 +67,6 @@ public class GameController implements Initializable {
                 teamsView.getChildren().add(labelView);
 
             }
-
-            // add gap
-            controlView.getChildren().add(new Pane());
 
             currentTurnLabel.setText("Current turn: " + game.getCurrentTeam());
 

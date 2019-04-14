@@ -1,5 +1,6 @@
 package game.board;
 
+import game.Game;
 import game.board.cell.Cell;
 import game.board.cell.CellController;
 import game.board.product.Product;
@@ -27,17 +28,23 @@ public class BoardController implements Initializable {
     private Label info;
 
     private Board board;// copy of current the model
+    private Game currentGame; // reference to raise events
 
-    public void setModel(Board board) {
-        this.board = board;
-        initialize(null, null);
-    }
+//    public void setModel(Board board) {
+//
+//    }
+
     public Board getModel() { return board; }
     public GridPane getView() { return mainGrid; }
 
     public BoardController() {
-//        System.out.println("ctorctor");
 
+    }
+
+    public void setCurrentGame(Game game) {
+        this.currentGame = game;
+        this.board = game.getBoard();
+        initialize(null, null);
     }
 
     @Override
@@ -65,7 +72,7 @@ public class BoardController implements Initializable {
                         loader.load();
 
                         // set its model via controller
-                        var cellController = (CellController)loader.getController();
+                        CellController cellController = loader.getController();
                         cellController.setModel(board.cells[i][j]);
 
                         // add its view to this view
@@ -73,7 +80,7 @@ public class BoardController implements Initializable {
 //                        mainGrid.setRowIndex(cellView, i);
 //                        mainGrid.setColumnIndex(cellView, j);
 //                        mainGrid.getChildren().add(cellView);
-                        mainGrid.add(cellView,j,i);
+                        mainGrid.add(cellView, j, i);
 
                     }
                 }
@@ -89,7 +96,9 @@ public class BoardController implements Initializable {
 
 
     public void clickGrid(javafx.scene.input.MouseEvent event) {
+
         Node clickedNode = event.getPickResult().getIntersectedNode();
+
         if (clickedNode != mainGrid) {
             // click on descendant node
             Node parent = clickedNode.getParent();
@@ -100,31 +109,62 @@ public class BoardController implements Initializable {
             Integer colIndex = GridPane.getColumnIndex(clickedNode);
             Integer rowIndex = GridPane.getRowIndex(clickedNode);
             //System.out.println("Mouse clicked cell: " + colIndex + " And: " + rowIndex);
-            clickedCell(colIndex,rowIndex);
+            clickedCell(rowIndex, colIndex);
 
         }
 
     }
 
     public void clickedCell(Integer x , Integer y) {
+
         var cell = this.board.getCell(x,y);
-        if( cell == this.board.getCurrentCell() ) {
-            // this is for the times when there are more than one product in a cell
-            //System.out.println("Updating cell item");
-            this.board.updateCurrentCellItem(cell);
-        } else {
+        Product prod = null;
+
+        if(cell != this.board.getCurrentCell()) {
             this.board.getCurrentCell().setCellColor(Cell.defaultColor);
-            this.board.setCurrentCell(cell);
-            cell.setCellColor("red");
+            this.board.updateCurrentCell(cell);
+        }
+
+        if (cell.getProducts().size() > 0){
+
+            prod = cell.getProducts().get(0);
+
+            if (prod.getTeam().equals(currentGame.getCurrentTeam())) {
+                cell.setCellColor(Cell.selectColor);
+            }
 
         }
-        if ( cell.getProducts().size() > 0 ){
-            this.board.setCurrentProduct(cell.getProducts().get(this.board.getCurrentCellItem()));
+
+        if (prod != null) {
+            try {
+                var view = getClass().getResource("cell/cell.fxml");
+                // load new cell view
+                var loader = new FXMLLoader(view);
+                loader.load();
+
+                // set its model via controller
+                CellController cellController = loader.getController();
+                cellController.setModel(cell);
+
+                // add its view to this view
+                var cellView = cellController.getView();
+//                        mainGrid.setRowIndex(cellView, i);
+//                        mainGrid.setColumnIndex(cellView, j);
+//                        mainGrid.getChildren().add(cellView);
+                mainGrid.add(cellView, prod.getPositionY(), prod.getPositionX());
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
         }
 
 
         // For debugging
         //info.setText("Cell x:"+x+" y:"+y+" color:"+cell.getCellColor()+"\n"+"Product "+this.board.getCurrentProduct());
+
+        //initialize(null, null); // re-render shortcut
+    }
+
+    private void RenderCell () {
 
     }
 

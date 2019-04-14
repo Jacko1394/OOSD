@@ -1,16 +1,14 @@
 package game.board.cell;
 
-import game.board.product.Product;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.paint.Paint;
 
 import java.io.FileInputStream;
 import java.net.URL;
@@ -27,9 +25,7 @@ public class CellController implements Initializable {
     @FXML
     private Pane arrows;
 
-
     private Image arrowImg;
-
     private Cell cell;
 
     public Cell getModel() {
@@ -90,6 +86,9 @@ public class CellController implements Initializable {
                 }
             }
 
+            //set color:
+            fg.setFill(Paint.valueOf(cell.getCellColor()));
+
         }
 
     }
@@ -124,9 +123,9 @@ public class CellController implements Initializable {
     }
 
 
-    public void clickCell(javafx.scene.input.MouseEvent event) {
+    public void clickCell(MouseEvent event) {
         //System.out.println("Hello World  "+this.cell.getCellColor());
-        fg.setFill(Paint.valueOf(this.cell.getCellColor()));
+//        fg.setFill(Paint.valueOf(this.cell.getCellColor()));
     }
 
 //    public void setSize(int x, int y) {

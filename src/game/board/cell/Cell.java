@@ -12,6 +12,7 @@ public class Cell {
 
     private String color = "wheat";
     public final static String defaultColor = "wheat";
+    public final static String selectColor = "green";
     
     private ArrayList<Product> products = new ArrayList<>();
     private String cellType;

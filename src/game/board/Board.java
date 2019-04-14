@@ -60,7 +60,7 @@ public class Board {
     public void initialisePieces()
     {
         ProductFactory productFactory = new ProductFactory();
-        this.products.add(productFactory.generateProduct("mac",7,1));
+        this.products.add(productFactory.generateProduct("mac",7,0));
         this.products.add(productFactory.generateProduct("osx",0,7));
         this.products.add(productFactory.generateProduct("surfacepro",14,7));
         this.products.add(productFactory.generateProduct("windows10",7,14));
@@ -125,12 +125,15 @@ public class Board {
         // TODO these cells can then be colored blue and selected by the user
         return null;
     }
-    public void updateCurrentCellItem(Cell cell) {
+    public void updateCurrentCell(Cell cell) {
         if ( this.currentCellItem < cell.getProducts().size() - 1 ) {
             this.currentCellItem ++;
         } else {
             this.currentCellItem = 0;
         }
+        // ?
+        this.currentCell = cell;
+
     }
     public int getCurrentCellItem(){ return this.currentCellItem; }
     
