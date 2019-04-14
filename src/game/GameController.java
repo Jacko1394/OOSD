@@ -2,6 +2,10 @@ package game;
 
 import game.board.BoardController;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.PauseTransition;
+import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -11,10 +15,12 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.util.Duration;
 
 import java.net.URL;
 import java.util.Random;
 import java.util.ResourceBundle;
+import java.util.concurrent.TimeUnit;
 
 public class GameController implements Initializable {
 
@@ -44,6 +50,8 @@ public class GameController implements Initializable {
     @FXML
     private Button button;
 
+    private static BoardController boardController;
+
 //    public Game getModel() { return game; }
 //    public HBox getView() { return mainView; }
 
@@ -56,7 +64,7 @@ public class GameController implements Initializable {
             var loader = new FXMLLoader(getClass().getResource("board/board.fxml"));
             GridPane board = loader.load();
 
-            BoardController boardController = loader.getController();
+            boardController = loader.getController();
             boardController.setCurrentGame(game);
 
             boardVbox.getChildren().add(board);
@@ -93,32 +101,48 @@ public class GameController implements Initializable {
     @FXML
     public void rollClicked() {
 
-        var board = game.getBoard();
+        try {
+            var board = game.getBoard();
 
-        if (board.getCurrentProduct().getTeam() != game.getCurrentTeam()) {
-            return;
+            if (board.getCurrentProduct().getTeam() != game.getCurrentTeam()) {
+                return;
+            }
+
+            button.setDisable(true);
+
+            var product = board.getCurrentProduct();
+            var rolled = product.getDice().roll();
+            diceNumber.setText("" + rolled);
+
+            // For debugging
+            //info.setText("Current Team:"+game.getCurrentTeam()+" \n Product Team:"+product.getTeam() +"\n Current Product:"+product.getID()+"\n Dice Loaded:"+product.getDice().getConf());
+
+            //TODO move the product
+            for (var i = rolled; i > 0; i--) {
+                var oldCell = board.getCurrentCell();
+                var newCell = game.getBoard().movePiece(product, board.getCurrentCell().getDirections()[0]);
+                boardController.RenderCell(oldCell);
+                boardController.RenderCell(newCell);
+
+//                Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1)));
+//                timeline.play();
+                Timeline t = new Timeline(
+                        new KeyFrame(Duration.seconds(0)),
+                        new KeyFrame(Duration.seconds(1))
+                );
+                t.setAutoReverse(true);
+                t.setCycleCount(Timeline.INDEFINITE);
+                t.play();
+            }
+
+            //TODO change teams
+            currentTurnLabel.setText("Current team: " + game.nextTeam());
+
+            button.setDisable(false);
+
+        } catch (Exception ex) {
+            //
         }
-
-        button.setDisable(true);
-
-        var product = game.getBoard().getCurrentProduct();
-        var rolled = product.getDice().roll();
-        diceNumber.setText("" + rolled);
-
-        // For debugging
-        //info.setText("Current Team:"+game.getCurrentTeam()+" \n Product Team:"+product.getTeam() +"\n Current Product:"+product.getID()+"\n Dice Loaded:"+product.getDice().getConf());
-
-        //TODO move the product
-//        for (var i = rolled; i > 0; i--) {
-//
-//        }
-
-        var piece = board.getCurrentProduct();
-        game.getBoard().movePiece(piece, board.getCurrentCell().getDirections()[0]);
-
-
-        //TODO change teams
-        currentTurnLabel.setText("Current team: " + game.nextTeam());
 
     }
 

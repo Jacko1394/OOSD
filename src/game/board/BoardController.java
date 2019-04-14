@@ -146,7 +146,7 @@ public class BoardController implements Initializable {
         //initialize(null, null); // re-render shortcut
     }
 
-    private void RenderCell (Cell cell) {
+    public void RenderCell (Cell cell) {
         try {
             var prod = cell.getProducts().get(0); // default for now
             var x = prod.getPositionX();

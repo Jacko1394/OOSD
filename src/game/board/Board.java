@@ -73,7 +73,7 @@ public class Board {
     }
 
 
-    public void movePiece(Product product, char direction)
+    public Cell movePiece(Product product, char direction)
     {
         int currentPositionX = product.getPositionX();
         int currentPositionY = product.getPositionY();
@@ -99,7 +99,7 @@ public class Board {
         product.setPositionX(newPositionX);
         cells[currentPositionX][currentPositionY].removeProduct(product);
         cells[newPositionX][newPositionY].addProduct(product);
-        
+        return cells[newPositionX][newPositionY];
     }
 
     public char[] getDirections(int xCoordinate, int yCoordinate)
