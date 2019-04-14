@@ -53,7 +53,7 @@ public class Board {
     {
         ProductFactory productFactory = new ProductFactory();
 
-        Product mac = productFactory.generateProduct("mac",7,1);
+        Product mac = productFactory.generateProduct("mac",7,0);
         Product osx = productFactory.generateProduct("osx",0,7);
 
         Product surfacePro = productFactory.generateProduct("surfacepro",14,7);
