@@ -121,6 +121,7 @@ public class GameController implements Initializable {
             for (var i = rolled; i > 0; i--) {
                 var oldCell = board.getCurrentCell();
                 var newCell = game.getBoard().movePiece(product, board.getCurrentCell().getDirections()[0]);
+                board.setCurrentCell(newCell);
                 boardController.RenderCell(oldCell);
                 boardController.RenderCell(newCell);
 
