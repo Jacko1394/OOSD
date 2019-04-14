@@ -32,8 +32,8 @@
 
                 <Label fx:id="diceNumber"
                        text="5"
-                       translateX="70"
-                       translateY="20">
+                       translateX="60"
+                       translateY="10">
                     <font>
                         <Font name="Comic Sans MS" size="128"/>
                     </font>

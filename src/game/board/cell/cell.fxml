@@ -1,21 +1,26 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.layout.Pane?>
 
+<?import javafx.scene.image.ImageView?>
 <Pane xmlns:fx="http://javafx.com/fxml"
-          fx:controller="game.board.cell.CellController"
-          fx:id="cellPane">
+      fx:controller="game.board.cell.CellController"
+      fx:id="cellPane">
 
     <Rectangle xmlns="http://javafx.com/javafx"
                fx:id="bg"
-               width="48"
-               height="48"/>
+               width="52"
+               height="52"/>
 
     <Rectangle xmlns="http://javafx.com/javafx"
                fx:id="fg"
                x="2"
                y="2"
                fill="wheat"
-               width="44"
-               height="44"/>
+               width="48"
+               height="48"/>
+
+    <Pane fx:id="arrows"
+          translateX="2"
+          translateY="2"/>
 
 </Pane>

@@ -1,5 +1,6 @@
 package game.board;
 
+import game.board.cell.CellController;
 import game.board.product.Product;
 
 import javafx.fxml.FXML;
@@ -19,7 +20,7 @@ public class BoardController implements Initializable {
     @FXML
     private GridPane mainGrid; // ref to fxml (a hardcoded-markup view file)
 
-    private Board board;// = new Board(); // the model
+    private Board board;// copy of current the model
 
     public void setModel(Board board) {
         this.board = board;
@@ -30,6 +31,7 @@ public class BoardController implements Initializable {
 
     public BoardController() {
 //        System.out.println("ctorctor");
+
     }
 
     @Override
@@ -41,46 +43,32 @@ public class BoardController implements Initializable {
                 return;
             }
 
+            var view = getClass().getResource("cell/cell.fxml");
+
             // the more i think about it, the more i believe this loop belongs here in the controller
             // the alternative is to pass the model to the view directly as a parameter
             // the controller should be responsible for reading the model, and initialising the view, which this loop does
-            for (int i = 0; i < board.cells.length; i++)
-            {
-                for (int j = 0; j < board.cells[i].length; j++)
-                {
+            for (int i = 0; i < board.cells.length; i++) {
+
+                for (int j = 0; j < board.cells[i].length; j++) {
 
                     if (board.cells[i][j].getIsSet()) {
 
-                        Pane cell = FXMLLoader.load(getClass().getResource("cell/cell.fxml"));
-                        if (!board.cells[i][j].isEmpty()) {
+                        // load new cell view
+                        var loader = new FXMLLoader(view);
+                        loader.load();
 
-                            try {
-                                // This for loop is for each of the products that could be in the cell
-                                for( Product prod : board.cells[i][j].getProducts() ){
-                                    System.out.println(prod.toString());
-                                    ImageView img = new ImageView();
-                                    var image = new Image(new FileInputStream(prod.imgPath));
-                                    img.setImage(image);
-                                    GridPane.setRowIndex(img, i);
-                                    GridPane.setColumnIndex(img, j);
-                                    img.setFitHeight(48);
-                                    img.setFitWidth(48);
-                                    mainGrid.getChildren().add(img);
-                                }
-                            } catch (Exception ex) {
-                                ex.printStackTrace();
-                            }
-                        } else {
+                        // set its model via controller
+                        var cellController = (CellController)loader.getController();
+                        cellController.setModel(board.cells[i][j]);
 
-                            GridPane.setRowIndex(cell, i);
-                            GridPane.setColumnIndex(cell, j);
-
-                            // this
-                            mainGrid.getChildren().add(cell);
-                        }
+                        // add its view to this view
+                        var cellView = cellController.getView();
+                        GridPane.setRowIndex(cellView, i);
+                        GridPane.setColumnIndex(cellView, j);
+                        mainGrid.getChildren().add(cellView);
 
                     }
-
                 }
             }
 
