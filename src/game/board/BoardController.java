@@ -122,6 +122,7 @@ public class BoardController implements Initializable {
 
         if(cell != this.board.getCurrentCell()) {
             this.board.getCurrentCell().setCellColor(Cell.defaultColor);
+            RenderCell(this.board.getCurrentCell());
             this.board.updateCurrentCell(cell);
         }
 
@@ -136,36 +137,35 @@ public class BoardController implements Initializable {
         }
 
         if (prod != null) {
-            try {
-                var view = getClass().getResource("cell/cell.fxml");
-                // load new cell view
-                var loader = new FXMLLoader(view);
-                loader.load();
-
-                // set its model via controller
-                CellController cellController = loader.getController();
-                cellController.setModel(cell);
-
-                // add its view to this view
-                var cellView = cellController.getView();
-//                        mainGrid.setRowIndex(cellView, i);
-//                        mainGrid.setColumnIndex(cellView, j);
-//                        mainGrid.getChildren().add(cellView);
-                mainGrid.add(cellView, prod.getPositionY(), prod.getPositionX());
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
+            RenderCell(cell);
         }
-
 
         // For debugging
         //info.setText("Cell x:"+x+" y:"+y+" color:"+cell.getCellColor()+"\n"+"Product "+this.board.getCurrentProduct());
-
         //initialize(null, null); // re-render shortcut
     }
 
-    private void RenderCell () {
+    private void RenderCell (Cell cell) {
+        try {
+            var prod = cell.getProducts().get(0); // default for now
+            var x = prod.getPositionX();
+            var y = prod.getPositionY();
 
+            var view = getClass().getResource("cell/cell.fxml");
+            // load new cell view
+            var loader = new FXMLLoader(view);
+            loader.load();
+
+            // set its model via controller
+            CellController cellController = loader.getController();
+            cellController.setModel(cell);
+
+            // add its view to this view
+            var cellView = cellController.getView();
+            mainGrid.add(cellView, y, x);
+        } catch (Exception ex) {
+            // empty cell
+        }
     }
 
 }
