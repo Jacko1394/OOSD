@@ -117,6 +117,8 @@ public class BoardController implements Initializable {
 
     public void clickedCell(Integer x , Integer y) {
 
+        // PRE: integer Values are valid board positions
+
         var cell = this.board.getCell(x,y);
         Product prod = null;
 

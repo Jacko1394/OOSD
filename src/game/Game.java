@@ -47,6 +47,8 @@ public class Game {
     // returns whether the cell is a choice block or not
     public String getCellType(Product product)
     {
+        // PRE: product not null?
+
         Cell cell = board.getCell(product.getPositionX(), product.getPositionY());
         return cell.getCellType();
     }
