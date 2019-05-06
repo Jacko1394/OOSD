@@ -1,10 +1,12 @@
 package game.board.product;
 
+import com.google.java.contract.Invariant;
+import com.google.java.contract.Requires;
 import game.board.product.dice.Dice;
 
 import java.util.Random;
 
-// base class:
+@Invariant("positionX >= 0 && positionY >= 0")
 public abstract class Product {
     
     private Dice dice;
@@ -15,6 +17,7 @@ public abstract class Product {
 
     public String imgPath;
 
+    @Requires("x >= 0 && y >= 0")
     public Product(int[] dice, String team, int positionX, int positionY) {
         this.dice = new Dice(dice);
         this.team = team;
@@ -38,10 +41,12 @@ public abstract class Product {
         return positionX;
     }
 
+    @Requires("position >= 0")
     public void setPositionX(int position) {
         this.positionX = position;
     }
 
+    @Requires("position >= 0")
     public void setPositionY(int position) {
         this.positionY = position;
     }

@@ -4,6 +4,7 @@ import game.board.Board;
 import game.board.product.Product;
 import game.board.BoardController;
 import game.board.cell.Cell;
+import com.google.java.contract.*; // cofoja
 
 import java.util.Random;
 
@@ -45,6 +46,7 @@ public class Game {
     }
 
     // returns whether the cell is a choice block or not
+    @Requires("product != null")
     public String getCellType(Product product)
     {
         // PRE: product not null?
