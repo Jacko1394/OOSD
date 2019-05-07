@@ -1,5 +1,6 @@
 package game.board;
 
+import com.google.java.contract.Requires;
 import game.Game;
 import game.board.cell.Cell;
 import game.board.cell.CellController;
@@ -10,12 +11,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
 
-import java.io.FileInputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -41,6 +38,7 @@ public class BoardController implements Initializable {
 
     }
 
+    @Requires("game != null")
     public void setCurrentGame(Game game) {
         this.currentGame = game;
         this.board = game.getBoard();
@@ -94,7 +92,6 @@ public class BoardController implements Initializable {
 
     }
 
-
     public void clickGrid(javafx.scene.input.MouseEvent event) {
 
         Node clickedNode = event.getPickResult().getIntersectedNode();
@@ -115,9 +112,8 @@ public class BoardController implements Initializable {
 
     }
 
+    @Requires("x >= 0 && y >= 0")
     public void clickedCell(Integer x , Integer y) {
-
-        // PRE: integer Values are valid board positions
 
         var cell = this.board.getCell(x,y);
         Product prod = null;
@@ -139,7 +135,7 @@ public class BoardController implements Initializable {
 
         }
 
-        if (prod != null) {
+        if (prod != null) { // to follow pre-condition
             RenderCell(cell);
         }
 
@@ -148,6 +144,7 @@ public class BoardController implements Initializable {
         //initialize(null, null); // re-render shortcut
     }
 
+    @Requires("cell != null")
     public void RenderCell (Cell cell) {
         try {
             var prod = cell.getProducts().get(0); // default for now
