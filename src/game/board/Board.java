@@ -91,12 +91,10 @@ public class Board {
 
     public void setChoiceState(Cell[][] paths) {
         for ( Cell[] cellrow : paths) {
-            try {
-                int[] endCellLocation = getPoint(cellrow[cellrow.length - 1]);
-                cells[endCellLocation[0]][endCellLocation[1]].setCellColor(Cell.selectColor);
-            } catch (Exception e) {
-                System.out.println(e);
-            }
+
+            int[] endCellLocation = getPoint(cellrow[cellrow.length - 1]);
+            cells[endCellLocation[0]][endCellLocation[1]].setCellColor(Cell.selectColor);
+
         }
         this.currentState = "Choice";
     }
@@ -141,32 +139,22 @@ public class Board {
 
     public Cell[][] search(int x , int y , int distance) {
 
-        System.out.println("Starting Search");
         ArrayList<Cell> pathsLong = searchBranch(x , y ,distance, new ArrayList<Cell>() );
 
         int pathsCount = pathsLong.size() % distance;
         Cell[][] paths =  new Cell[pathsCount][distance+1];
-        System.out.println("Got paths size:"+pathsLong.size()+" pathscount:"+pathsCount + " distance:"+distance);
 
         for ( int i = 0; i < pathsLong.size(); i ++) {
             int section = i / (distance+1);
             int position = i - (section * (distance+1));
+            Cell item = pathsLong.get(i);
+            paths[section][position] = item;
 
-            System.out.println("Creating path map i:"+i+" section:"+section+" position:"+position);
-            try {
-                Cell item = pathsLong.get(i);
-                System.out.println("Get cell");
-                paths[section][position] = item;
-            } catch (Exception  ex ){
-                System.out.println(ex);
-            }
         }
-        System.out.println("Sending cells");
         return paths;
     }
 
     private ArrayList<Cell> searchBranch(int x , int y , int distance , ArrayList<Cell> path) {
-        System.out.println("Searching branch x:" + x +" y:"+ y +" distance:"+ distance);
         path.add(getCell(x,y));
         if( distance == 0 ){return path;}
         ArrayList<Cell> newPaths = new ArrayList<>();
@@ -192,7 +180,6 @@ public class Board {
         for (int i = 0; i < cells.length; i ++) {
             for (int j = 0; j < cells[i].length; j ++) {
                 if (cells[i][j].equals(cell)) {
-                    System.out.println("Found cell at x:"+i+" y:"+j);
                     output[0] = i;
                     output[1] = j;
 
