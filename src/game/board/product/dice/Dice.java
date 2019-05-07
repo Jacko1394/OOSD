@@ -2,9 +2,8 @@ package game.board.product.dice;
 
 import java.util.Arrays;
 import java.util.Random;
-import game.board.product.dice.Rollable;
 
-public class Dice implements Rollable{
+public class Dice{
 
     private int[] config;
 
@@ -12,10 +11,14 @@ public class Dice implements Rollable{
        this.config = config;
     }
 
+    public Dice(){
+
+    }
+
     public int roll() {
         Random rand = new Random();
         int rolled = this.config[rand.nextInt(this.config.length)];
-        return rolled;
+        return 10;
     }
 
     public String getConf() {
