@@ -18,7 +18,7 @@ public class Dice{
     public int roll() {
         Random rand = new Random();
         int rolled = this.config[rand.nextInt(this.config.length)];
-        return 10;
+        return rolled;
     }
 
     public String getConf() {
