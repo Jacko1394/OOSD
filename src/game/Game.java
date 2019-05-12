@@ -4,6 +4,7 @@ import game.board.Board;
 import game.board.product.Product;
 import game.board.BoardController;
 import game.board.cell.Cell;
+import com.google.java.contract.*; // cofoja
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,6 +54,7 @@ public class Game {
     }
 
     // returns whether the cell is a choice block or not
+    @Requires("product != null")
     public String getCellType(Product product)
     {
         Cell cell = history.get(history.size() - 1).getCell(product.getPositionX(), product.getPositionY());

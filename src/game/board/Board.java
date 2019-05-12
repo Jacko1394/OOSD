@@ -14,6 +14,8 @@ public class Board {
     private Product currentProduct;
     private Cell currentCell;
     private int currentCellItem = 0;
+    private String currentState = "Player"; // Should become an enum
+
     
     // configuration of static board
     public String[][] mapConfig =
@@ -72,34 +74,96 @@ public class Board {
 
     }
 
-
-    public Cell movePiece(Product product, char direction)
+    public void movePiece(Product product, char direction)
     {
         int currentPositionX = product.getPositionX();
         int currentPositionY = product.getPositionY();
-        int newPositionY = currentPositionY;
-        int newPositionX = currentPositionX;
+        int[] newPosition = nextPosition(currentPositionX,currentPositionY,direction);
+        int xNew = newPosition[0];
+        int yNew = newPosition[1];
 
+        product.setPositionY(yNew);
+        product.setPositionX(xNew);
+        cells[currentPositionX][currentPositionY].removeProduct(product);
+        cells[xNew][yNew].addProduct(product);
+    }
+
+
+    public void setChoiceState(Cell[][] paths) {
+        for ( Cell[] cellrow : paths) {
+
+            int[] endCellLocation = getPoint(cellrow[cellrow.length - 1]);
+            cells[endCellLocation[0]][endCellLocation[1]].setCellColor(Cell.selectColor);
+
+        }
+        this.currentState = "Choice";
+    }
+
+    public void setPlayerState() {
+        this.currentState = "Player";
+        for ( Cell[] cellrow : cells){
+            for ( Cell cell : cellrow) {
+                cell.setCellColor(Cell.defaultColor);
+            }
+        }
+    }
+
+    public void movePiece(Product product, Cell toCell ) {
+        cells[product.getPositionX()][product.getPositionY()].removeProduct(product);
+        int[] cellLocation = getPoint(toCell);
+        product.setPositionX(cellLocation[0]);
+        product.setPositionY(cellLocation[1]);
+        toCell.addProduct(product);
+    }
+
+    static public int[] nextPosition(int x, int y, char direction) {
+        int newPositionX = x;
+        int newPositionY = y;
         switch(direction) {
             case 'l':
-                newPositionY = currentPositionY - 1;
+                newPositionY = y - 1;
                 break;
             case 'r':
-                newPositionY = currentPositionY + 1;
+                newPositionY = y + 1;
                 break;
             case 'd':
-                newPositionX = currentPositionX + 1;
+                newPositionX = x + 1;
                 break;
             case 'u':
-                newPositionX = currentPositionX - 1;
+                newPositionX = x - 1;
                 break;
         }
+        int[] output = { newPositionX , newPositionY };
+        return output;
+    }
 
-        product.setPositionY(newPositionY);
-        product.setPositionX(newPositionX);
-        cells[currentPositionX][currentPositionY].removeProduct(product);
-        cells[newPositionX][newPositionY].addProduct(product);
-        return cells[newPositionX][newPositionY];
+    public Cell[][] search(int x , int y , int distance) {
+
+        ArrayList<Cell> pathsLong = searchBranch(x , y ,distance, new ArrayList<Cell>() );
+
+        int pathsCount = pathsLong.size() % distance;
+        Cell[][] paths =  new Cell[pathsCount][distance+1];
+
+        for ( int i = 0; i < pathsLong.size(); i ++) {
+            int section = i / (distance+1);
+            int position = i - (section * (distance+1));
+            Cell item = pathsLong.get(i);
+            paths[section][position] = item;
+
+        }
+        return paths;
+    }
+
+    private ArrayList<Cell> searchBranch(int x , int y , int distance , ArrayList<Cell> path) {
+        path.add(getCell(x,y));
+        if( distance == 0 ){return path;}
+        ArrayList<Cell> newPaths = new ArrayList<>();
+
+        for (char direction : getDirections(x,y) ) {
+            int[] nextCell = nextPosition(x,y,direction);
+            newPaths.addAll(searchBranch(nextCell[0],nextCell[1],distance - 1,new ArrayList<>(path)));
+        }
+        return newPaths;
     }
 
     public char[] getDirections(int xCoordinate, int yCoordinate)
@@ -111,6 +175,19 @@ public class Board {
     {
         return cells[x][y];
     }
+    public int[] getPoint(Cell cell) {
+        int[] output = { 0 , 0 };
+        for (int i = 0; i < cells.length; i ++) {
+            for (int j = 0; j < cells[i].length; j ++) {
+                if (cells[i][j].equals(cell)) {
+                    output[0] = i;
+                    output[1] = j;
+
+                }
+            }
+        }
+        return output;
+    }
 
     public Product getCurrentProduct() {  return this.currentProduct ;}
 
@@ -120,11 +197,6 @@ public class Board {
 
     public void setCurrentCell(Cell cell) { this.currentCellItem = 0; this.currentCell = cell ;}
 
-    public Cell[] getPossibleCells(Cell productCell,int distance) {
-        // TODO search through paths and return possible cells that a person could move to
-        // TODO these cells can then be colored blue and selected by the user
-        return null;
-    }
     public void updateCurrentCell(Cell cell) {
         if ( this.currentCellItem < cell.getProducts().size() - 1 ) {
             this.currentCellItem ++;

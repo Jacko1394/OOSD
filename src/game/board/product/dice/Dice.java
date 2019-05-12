@@ -2,14 +2,17 @@ package game.board.product.dice;
 
 import java.util.Arrays;
 import java.util.Random;
-import game.board.product.dice.Rollable;
 
-public class Dice implements Rollable{
+public class Dice{
 
     private int[] config;
 
     public Dice(int[] config) {
        this.config = config;
+    }
+
+    public Dice(){
+
     }
 
     public int roll() {

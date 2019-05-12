@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="com.google.java.contract:cofoja:1.1-r150" type="repository">
+    <properties maven-id="com.google.java.contract:cofoja:1.1-r150" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/google/java/contract/cofoja/1.1-r150/cofoja-1.1-r150.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

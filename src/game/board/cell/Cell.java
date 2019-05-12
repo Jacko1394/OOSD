@@ -73,7 +73,7 @@ public class Cell {
         this.cellType = cellType;
     }
 
-    public void setCellColor(String color){ System.out.println("updateing color  "+color); this.color = color; }
+    public void setCellColor(String color){ this.color = color; }
     public String getCellColor() { return this.color;}
 
 
