@@ -18,13 +18,16 @@ public class Game {
 
     private ArrayList<Board> history = new ArrayList<>();
 
-    public ArrayList<Board> getBoard() {
+    public Board getBoard() {
+        return history.get(history.size() - 1);
+    }
+
+    public ArrayList<Board> getHistory() {
         return history;
     }
 
     public void startGame()
     {
-        ArrayList<Board> history = new ArrayList<>();
 
         Board board = new Board();
         history.add(board);
