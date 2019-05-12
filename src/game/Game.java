@@ -5,6 +5,8 @@ import game.board.product.Product;
 import game.board.BoardController;
 import game.board.cell.Cell;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class Game {
@@ -13,18 +15,24 @@ public class Game {
     // teams can be fed in using stdin at a later stage for more than 2 players
     private String[] listOfTeams = {"Microsoft", "Apple"};
 
-    private Board board = new Board();
-    public Board getBoard() {
-        return board;
+    private ArrayList<Board> history = new ArrayList<>();
+
+    public ArrayList<Board> getBoard() {
+        return history;
     }
 
     public void startGame()
     {
+        ArrayList<Board> history = new ArrayList<>();
+
+        Board board = new Board();
+        history.add(board);
+
         // randomly select a team to go first
         Random rand = new Random(); 
         currentTeam = listOfTeams[rand.nextInt(getNumberOfTeams() - 1)];
 
-        board.initialisePieces();
+        history.get(0).initialisePieces();
     }
 
     public String nextTeam()
@@ -47,7 +55,7 @@ public class Game {
     // returns whether the cell is a choice block or not
     public String getCellType(Product product)
     {
-        Cell cell = board.getCell(product.getPositionX(), product.getPositionY());
+        Cell cell = history.get(history.size() - 1).getCell(product.getPositionX(), product.getPositionY());
         return cell.getCellType();
     }
 
@@ -73,11 +81,6 @@ public class Game {
     {
         return currentTeam;
     }
-
-//    public void setCurrentTeam(String currentTeam)
-//    {
-//        this.currentTeam = currentTeam;
-//    }
 
     public String[] getListOfTeams() 
     {
