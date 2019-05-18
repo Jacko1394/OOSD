@@ -40,8 +40,8 @@ public class GameController implements Initializable {
     @FXML
     private Label diceNumber;
 
-    @FXML
-    private Label info;
+//    @FXML
+//    private Label info;
 
     @FXML
     private VBox controlView;
@@ -95,7 +95,7 @@ public class GameController implements Initializable {
         System.out.println("Starting roll");
 
         try {
-            Board board = game.getBoard();
+            var board = game.getBoard();
 
             //todo: is this needed? DBC ::: game won't let user select piece if not his team's
             if (board.getCurrentProduct().getTeam() != game.getCurrentTeam()) {
@@ -109,15 +109,16 @@ public class GameController implements Initializable {
             diceNumber.setText("" + rolled);
 
             Cell[][] paths = board.search(product.getPositionX(),product.getPositionY(),rolled);
-            System.out.println("number of paths:" + String.valueOf(paths.length) + " dice:"+rolled);
-            if ( paths.length == 1 ){
-                board.movePiece(product,paths[0][rolled - 1]);
-            }else{
-                Random rand = new Random();
+            System.out.println("Number of paths: " + paths.length + " | Dice:" + rolled);
+
+            if ( paths.length == 1 ) {
+                board.movePiece(product, paths[0][rolled - 1]);
+            } else {
+                var rand = new Random();
                 board.setChoiceState(paths);
                 int choice = rand.nextInt(paths.length);
-                System.out.println("Moving peice to path "+choice);
-                board.movePiece(product,paths[choice][rolled]);
+                System.out.println("Moving piece to path: " + choice);
+                board.movePiece(product, paths[choice][rolled]);
                 //TODO update board state to wait for user input
             }
 

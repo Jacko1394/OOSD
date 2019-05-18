@@ -28,7 +28,6 @@ public class Game {
 
     public void startGame()
     {
-
         Board board = new Board();
         history.add(board);
 
@@ -60,21 +59,13 @@ public class Game {
     @Requires("product != null")
     public String getCellType(Product product)
     {
-        Cell cell = history.get(history.size() - 1).getCell(product.getPositionX(), product.getPositionY());
+        Cell cell = getBoard().getCell(product.getPositionX(), product.getPositionY());
         return cell.getCellType();
     }
 
-
     public boolean checkProductTeamIsCurrent(Product product)
     {
-        if (product.getTeam().equalsIgnoreCase(this.currentTeam))
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return product.getTeam().equalsIgnoreCase(this.currentTeam);
     }
 
     public int getNumberOfTeams() 

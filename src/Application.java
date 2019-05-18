@@ -10,7 +10,7 @@ public class Application extends javafx.application.Application {
 
         // init main view
         Parent gameView = FXMLLoader.load(getClass().getResource("game/game.fxml"));
-        var scene = new Scene(gameView, 1600, 900);
+        var scene = new Scene(gameView, 1800, 1000);
         primaryStage.setTitle("Boom Sum");
         primaryStage.setScene(scene);
         primaryStage.show();
