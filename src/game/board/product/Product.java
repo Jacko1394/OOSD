@@ -10,10 +10,10 @@ import java.util.Random;
 public abstract class Product {
     
     private Dice dice;
-    private String team;
     private int positionX;
     private int positionY;
     protected String productID;
+    protected String productTeam;
 
     public String imgPath;
 
@@ -27,10 +27,6 @@ public abstract class Product {
 
     public Dice getDice(){
         return this.dice;
-    }
-
-    public String getTeam(){
-        return this.team;
     }
 
     public int getPositionY() {
@@ -54,6 +50,11 @@ public abstract class Product {
     public String getID()
     {
         return productID;
+    }
+
+    public String getProductTeam()
+    {
+        return productTeam;
     }
 
 }

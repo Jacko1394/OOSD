@@ -8,5 +8,6 @@ public class OSX extends AppleProducts {
         super(dice, positionX, positionY);
         imgPath = "src/logosml/macOS.png";
         productID = "OSX";
+        productTeam = "apple";
     }
 }

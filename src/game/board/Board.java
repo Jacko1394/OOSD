@@ -61,11 +61,12 @@ public class Board {
 
     public void initialisePieces()
     {
-        ProductFactory productFactory = new ProductFactory();
-        this.products.add(productFactory.generateProduct("mac",7,0));
-        this.products.add(productFactory.generateProduct("osx",0,7));
-        this.products.add(productFactory.generateProduct("surfacepro",14,7));
-        this.products.add(productFactory.generateProduct("windows10",7,14));
+        ProductFactory appleProductFactory = new AppleFactory();
+        ProductFactory microsoftProductFactory = new MicrosoftFactory();
+        this.products.add(appleProductFactory.generateProduct("mac",7,0));
+        this.products.add(appleProductFactory.generateProduct("osx",0,7));
+        this.products.add(microsoftProductFactory.generateProduct("surfacepro",14,7));
+        this.products.add(microsoftProductFactory.generateProduct("windows10",7,14));
 
         for ( Product x : this.products ) {
             this.cells[x.getPositionX()][x.getPositionY()].addProduct(x);
@@ -208,5 +209,10 @@ public class Board {
 
     }
     public int getCurrentCellItem(){ return this.currentCellItem; }
+
+    public ArrayList<Product> getProducts()
+    {
+        return products;
+    }
     
 }

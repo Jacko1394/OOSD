@@ -1,22 +1,13 @@
 package game;
 
-import game.board.Board;
-import game.board.product.Product;
-import game.board.BoardController;
-import game.board.cell.Cell;
-import com.google.java.contract.*; // cofoja
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-
-public class Game {
+public class Facade
+{
+    Game game = new Game();
+    Board board = new Board();
 
     private String currentTeam;
     // teams can be fed in using stdin at a later stage for more than 2 players
-    private Team apple  = new Team();
-    private Team micrsoft = new Team();
-    private Team[] listOfTeams = {apple, microsoft};
+    private String[] listOfTeams = {"Microsoft", "Apple"};
 
     private ArrayList<Board> history = new ArrayList<>();
 
@@ -32,20 +23,6 @@ public class Game {
     {
         Board board = new Board();
         history.add(board);
-
-        // used to assign each product to it's appropriate team.
-        ArrayList<Product> products = board.getProducts();
-        for(Product product : products)
-        {
-            if (productTeam.equalsIgnoreCase("apple"))
-            {
-                apple.addProduct(product);
-            }
-            else if (productTeam.equalsIgnoreCase("microsoft"))
-            {
-                microsoft.addProduct(product);
-            }
-        }
 
         // randomly select a team to go first
         Random rand = new Random(); 
@@ -91,17 +68,17 @@ public class Game {
 
     public String getCurrentTeam() 
     {
-        return currentTeam;
+        return game.getCurrentTeam();
     }
 
     public String[] getListOfTeams() 
     {
-        return listOfTeams;
+        return game.getListOfTeams();
     }
 
     public void setListOfTeams(String[] listOfTeams) 
     {
-        this.listOfTeams = listOfTeams;
+        game.setListOfTeams(listOfTeams);
     }
 
 }
