@@ -117,7 +117,7 @@ public class Board {
         toCell.addProduct(product);
     }
 
-    static public int[] nextPosition(int x, int y, char direction) {
+    public int[] nextPosition(int x, int y, char direction) {
         int newPositionX = x;
         int newPositionY = y;
         switch(direction) {

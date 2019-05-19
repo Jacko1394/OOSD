@@ -16,4 +16,14 @@ public class Team
     {
         products.add(product);
     }
+
+    public ArrayList<Product> getProduct()
+    {
+        return products;
+    }
+
+    public Boolean getIsAI()
+    {
+        return isAI;
+    }
 }

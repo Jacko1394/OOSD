@@ -1,69 +1,45 @@
 package game;
 
+import game.board.Board;
+
 public class Facade
 {
     Game game = new Game();
     Board board = new Board();
 
-    private String currentTeam;
-    // teams can be fed in using stdin at a later stage for more than 2 players
-    private String[] listOfTeams = {"Microsoft", "Apple"};
-
-    private ArrayList<Board> history = new ArrayList<>();
-
     public Board getBoard() {
-        return history.get(history.size() - 1);
+        return game.getBoard();
     }
 
     public ArrayList<Board> getHistory() {
-        return history;
+        return game.getHistory();
     }
 
     public void startGame()
     {
-        Board board = new Board();
-        history.add(board);
-
-        // randomly select a team to go first
-        Random rand = new Random(); 
-        currentTeam = listOfTeams[rand.nextInt(getNumberOfTeams() - 1)];
-
-        history.get(0).initialisePieces();
+        game.startGame();
     }
 
     public String nextTeam()
     {
-        // assume next player is the first player in array, as we compare all but last player
-        var team = listOfTeams[0];
-
-        for (int i = 0; i < listOfTeams.length - 1; i++)
-        {
-            if (listOfTeams[i].equals(currentTeam))
-            {
-                team = listOfTeams[i + 1];
-            }
-        }
-        // getting the next Team updates currentTeam
-        currentTeam = team;
-        return currentTeam;
+        return game.nextTeam();
     }
 
     // returns whether the cell is a choice block or not
     @Requires("product != null")
     public String getCellType(Product product)
     {
-        Cell cell = getBoard().getCell(product.getPositionX(), product.getPositionY());
-        return cell.getCellType();
+        return game.getCellType(product);
     }
 
     public boolean checkProductTeamIsCurrent(Product product)
     {
-        return product.getTeam().equalsIgnoreCase(this.currentTeam);
+        return game.checkProductTeamIsCurrent(product);
     }
 
     public int getNumberOfTeams() 
     {
-        return this.listOfTeams.length;
+        return game.getNumberOfTeams();
     }
 
     public String getCurrentTeam() 
@@ -79,6 +55,86 @@ public class Facade
     public void setListOfTeams(String[] listOfTeams) 
     {
         game.setListOfTeams(listOfTeams);
+    }
+
+
+
+
+
+
+    public void initialisePieces()
+    {
+        board.initialisePieces();
+    }
+
+    public void movePiece(Product product, char direction)
+    {
+        board.movePiece(product, direction);
+    }
+
+    public void setChoiceState(Cell[][] paths) {
+        board.setChoiceState(paths);
+    }
+
+    public void setPlayerState() {
+        board.setPlayerState();
+    }
+
+    public void movePiece(Product product, Cell toCell ) {
+        board.movePiece(product, toCell);
+    }
+
+    public int[] nextPosition(int x, int y, char direction) {
+        return board.nextPosition(x, y,direction);
+    }
+
+    public Cell[][] search(int x , int y , int distance) {
+        return board.search(x, y, distance);
+    }
+
+    public char[] getDirections(int xCoordinate, int yCoordinate)
+    {
+        return board.getDirections(xCoordinate, yCoordinate);
+    }
+
+    public Cell getCell(int x, int y)
+    {
+        return board.getCell(x, y);
+    }
+
+    public int[] getPoint(Cell cell) {
+        return board.getPoint(cell);
+    }
+
+    public Product getCurrentProduct() {  return this.currentProduct ;}
+
+    public void setCurrentProduct(Product product) 
+    { 
+        return board.setCurrentProduct(product);
+    }
+
+    public Cell getCurrentCell() 
+    { 
+        return board.getCurrentCell();
+    }
+
+    public void setCurrentCell(Cell cell) 
+    { 
+        board.setCurrentCell(cell); 
+    }
+
+    public void updateCurrentCell(Cell cell) 
+    {
+        board.updateCurrentCell(cell);
+    }
+    public int getCurrentCellItem()
+    { 
+        return board.getCurrentCellItem(); 
+    }
+
+    public ArrayList<Product> getProducts()
+    {
+        return board.getProducts();
     }
 
 }
