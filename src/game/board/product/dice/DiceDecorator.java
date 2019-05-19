@@ -1,10 +1,17 @@
 package game.board.product.dice;
 
-public class DiceDecorator  extends Dice {
-    protected Dice decoratedDice;
-    public DiceDecorator(Dice decoratedDice){
-        super();
-        this.decoratedDice = decoratedDice;
+public abstract class DiceDecorator {
+
+    int[] config;
+
+    public DiceDecorator(int[]  config)
+    {
+        this.config = config;
+    }
+
+    public int[] decorate()
+    {
+        return config;
     }
 
 }
