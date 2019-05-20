@@ -9,7 +9,7 @@ public class Mac extends AppleProducts {
         super(dice, positionX, positionY);
         imgPath = "src/logosml/mac.png";
         productID = "Mac";
-        productTeam = "apple";
+//        productTeam = "apple";
     }
 
 }

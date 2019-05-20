@@ -8,7 +8,7 @@ public class Windows10 extends MicrosoftProducts {
         super(dice, positionX, positionY);
         imgPath = "src/logosml/win10.png";
         productID = "Windows10";
-        productTeam = "windows";
+//        productTeam = "windows";
     }
     
 }

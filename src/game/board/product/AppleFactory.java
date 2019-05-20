@@ -1,7 +1,7 @@
 package game.board.product;
 
 
-public class MicrosoftFactory extends ProductFactory
+public class AppleFactory extends ProductFactory
 {
 
     public Product generateProduct(String productType, int x, int y)

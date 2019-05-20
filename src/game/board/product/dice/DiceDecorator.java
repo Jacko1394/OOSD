@@ -4,7 +4,7 @@ public abstract class DiceDecorator {
 
     int[] config;
 
-    public DiceDecorator(int[]  config)
+    public DiceDecorator(int[] config)
     {
         this.config = config;
     }

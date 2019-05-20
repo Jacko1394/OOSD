@@ -1,5 +1,8 @@
 package game;
 
+import game.board.product.Product;
+import java.util.ArrayList;
+
 public class Team
 {
     private String teamID;
@@ -11,6 +14,8 @@ public class Team
         this.isAI = isAI;
         this.teamID = teamID;
     }
+
+    public String getTeamID() { return teamID; }
 
     public void addProduct(Product product)
     {

@@ -12,10 +12,10 @@ import java.util.Random;
 
 public class Game {
 
-    private String currentTeam;
+    private Team currentTeam;
     // teams can be fed in using stdin at a later stage for more than 2 players
-    private Team apple  = new Team();
-    private Team micrsoft = new Team();
+    private Team apple  = new Team("apple", false);
+    private Team microsoft = new Team("microsoft", false);
     private Team[] listOfTeams = {apple, microsoft};
 
     private ArrayList<Board> history = new ArrayList<>();
@@ -37,11 +37,11 @@ public class Game {
         ArrayList<Product> products = board.getProducts();
         for(Product product : products)
         {
-            if (productTeam.equalsIgnoreCase("apple"))
+            if (product.getProductTeam().getTeamID().equalsIgnoreCase("apple"))
             {
                 apple.addProduct(product);
             }
-            else if (productTeam.equalsIgnoreCase("microsoft"))
+            else if (product.getProductTeam().getTeamID().equalsIgnoreCase("microsoft"))
             {
                 microsoft.addProduct(product);
             }
@@ -54,7 +54,7 @@ public class Game {
         history.get(0).initialisePieces();
     }
 
-    public String nextTeam()
+    public Team nextTeam()
     {
         // assume next player is the first player in array, as we compare all but last player
         var team = listOfTeams[0];
@@ -81,7 +81,7 @@ public class Game {
 
     public boolean checkProductTeamIsCurrent(Product product)
     {
-        return product.getTeam().equalsIgnoreCase(this.currentTeam);
+        return product.getProductTeam() == this.currentTeam;
     }
 
     public int getNumberOfTeams() 
@@ -89,17 +89,17 @@ public class Game {
         return this.listOfTeams.length;
     }
 
-    public String getCurrentTeam() 
+    public Team getCurrentTeam()
     {
         return currentTeam;
     }
 
-    public String[] getListOfTeams() 
+    public Team[] getListOfTeams()
     {
         return listOfTeams;
     }
 
-    public void setListOfTeams(String[] listOfTeams) 
+    public void setListOfTeams(Team[] listOfTeams)
     {
         this.listOfTeams = listOfTeams;
     }

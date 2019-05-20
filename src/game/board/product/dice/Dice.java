@@ -24,8 +24,8 @@ public class Dice {
         return config;
     }
 
-    public DiceDecorator powerUpDecorator(Powerup powerUp)
-    {
-
-    }
+//    public DiceDecorator powerUpDecorator(Powerup powerUp)
+//    {
+//
+//    }
 }

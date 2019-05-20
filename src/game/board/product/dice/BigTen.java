@@ -3,7 +3,7 @@ package game.board.product.dice;
 public class BigTen extends DiceDecorator {
 
     public BigTen(Dice decoratedDice) {
-        super(decoratedDice);
+        super(null);
     }
 
     /*@Override

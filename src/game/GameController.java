@@ -98,7 +98,7 @@ public class GameController implements Initializable {
             var board = game.getBoard();
 
             //todo: is this needed? DBC ::: game won't let user select piece if not his team's
-            if (board.getCurrentProduct().getTeam() != game.getCurrentTeam()) {
+            if (board.getCurrentProduct().getProductTeam() != game.getCurrentTeam()) {
                 return;
             }
 

@@ -1,6 +1,11 @@
 package game;
 
+import com.google.java.contract.Requires;
 import game.board.Board;
+import game.board.cell.Cell;
+import game.board.product.Product;
+
+import java.util.ArrayList;
 
 public class Facade
 {
@@ -20,7 +25,7 @@ public class Facade
         game.startGame();
     }
 
-    public String nextTeam()
+    public Team nextTeam()
     {
         return game.nextTeam();
     }
@@ -42,25 +47,20 @@ public class Facade
         return game.getNumberOfTeams();
     }
 
-    public String getCurrentTeam() 
+    public Team getCurrentTeam()
     {
         return game.getCurrentTeam();
     }
 
-    public String[] getListOfTeams() 
+    public Team[] getListOfTeams()
     {
         return game.getListOfTeams();
     }
 
-    public void setListOfTeams(String[] listOfTeams) 
+    public void setListOfTeams(Team[] listOfTeams)
     {
         game.setListOfTeams(listOfTeams);
     }
-
-
-
-
-
 
     public void initialisePieces()
     {
@@ -106,11 +106,11 @@ public class Facade
         return board.getPoint(cell);
     }
 
-    public Product getCurrentProduct() {  return this.currentProduct ;}
+//    public Product getCurrentProduct() {  return this.currentProduct ;}
 
     public void setCurrentProduct(Product product) 
     { 
-        return board.setCurrentProduct(product);
+        board.setCurrentProduct(product);
     }
 
     public Cell getCurrentCell() 
