@@ -8,7 +8,7 @@ public class SurfacePro extends MicrosoftProducts {
         super(dice, positionX, positionY);
         imgPath = "src/logosml/surface.png";
         productID = "SurfacePro";
-//        productTeam = "microsoft";
+//        productTeam = "Microsoft";
     }
 
 }

@@ -113,9 +113,9 @@ public class BoardController implements Initializable {
     }
 
     @Requires("x >= 0 && y >= 0")
-    public void clickedCell(Integer x , Integer y) {
+    public void clickedCell(Integer x, Integer y) {
 
-        var cell = this.board.getCell(x,y);
+        var cell = this.board.getCell(x, y);
         Product prod = null;
 
         if(cell != this.board.getCurrentCell()) {
@@ -124,12 +124,12 @@ public class BoardController implements Initializable {
             this.board.updateCurrentCell(cell);
         }
 
-        if (cell.getProducts().size() > 0){
+        if (cell.getProducts().size() > 0) { // if has products
 
             prod = cell.getProducts().get(0);
             this.board.setCurrentProduct(prod);
 
-            if (prod.getProductTeam().equals(currentGame.getCurrentTeam())) {
+            if (prod.getProductTeam().getTeamID().equals(currentGame.getCurrentTeam().getTeamID())) {
                 cell.setCellColor(Cell.selectColor);
             }
 

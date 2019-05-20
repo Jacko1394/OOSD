@@ -8,7 +8,7 @@ public class Powershell extends MicrosoftProducts {
         super(dice, positionX, positionY);
         imgPath = "src/logosml/powershell.png";
         productID = "Powershell";
-//        productTeam = "microsoft";
+//        productTeam = "Microsoft";
     }
 
 }

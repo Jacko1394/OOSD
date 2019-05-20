@@ -8,7 +8,7 @@ public class Terminal extends AppleProducts {
         super(dice,positionX, positionY);
         imgPath = "src/logosml/terminal.png";
         productID = "Terminal";
-//        productTeam = "apple";
+//        productTeam = "Apple";
     }
 
 }

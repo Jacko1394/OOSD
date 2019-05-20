@@ -31,4 +31,7 @@ public class Team
     {
         return isAI;
     }
+
+    @Override
+    public String toString() { return this.teamID; }
 }

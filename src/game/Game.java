@@ -14,8 +14,8 @@ public class Game {
 
     private Team currentTeam;
     // teams can be fed in using stdin at a later stage for more than 2 players
-    private Team apple  = new Team("apple", false);
-    private Team microsoft = new Team("microsoft", false);
+    private Team apple  = new Team("Apple", false);
+    private Team microsoft = new Team("Microsoft", false);
     private Team[] listOfTeams = {apple, microsoft};
 
     private ArrayList<Board> history = new ArrayList<>();
@@ -37,11 +37,11 @@ public class Game {
         ArrayList<Product> products = board.getProducts();
         for(Product product : products)
         {
-            if (product.getProductTeam().getTeamID().equalsIgnoreCase("apple"))
+            if (product.getProductTeam().getTeamID().equalsIgnoreCase("Apple"))
             {
                 apple.addProduct(product);
             }
-            else if (product.getProductTeam().getTeamID().equalsIgnoreCase("microsoft"))
+            else if (product.getProductTeam().getTeamID().equalsIgnoreCase("Microsoft"))
             {
                 microsoft.addProduct(product);
             }
