@@ -1,3 +1,4 @@
+import game.MenuController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -8,9 +9,14 @@ public class Application extends javafx.application.Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        // init main view
-        Parent gameView = FXMLLoader.load(getClass().getResource("game/game.fxml"));
-        var scene = new Scene(gameView, 1800, 1000);
+        var menu = getClass().getResource("game/startMenu.fxml");
+        var loader = new FXMLLoader(menu);
+        Parent menuView = loader.load();
+
+        MenuController menuCont = loader.getController();
+        menuCont.setMainStage(primaryStage);
+
+        var scene = new Scene(menuView, 1800, 1000);
         primaryStage.setTitle("Boom Sum");
         primaryStage.setScene(scene);
         primaryStage.show();
