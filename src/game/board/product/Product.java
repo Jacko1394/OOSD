@@ -17,8 +17,9 @@ public abstract class Product {
     public String imgPath;
 
     @Requires("x >= 0 && y >= 0")
-    public Product(int[] dice, String team, int positionX, int positionY) {
-        this.dice = new Dice(dice, null);
+    public Product(int[] dice, String team, int positionX, int positionY)
+    {
+        this.dice = new StandardDice(dice);
         this.productTeam = new Team(team, false);
         this.positionX = positionX;
         this.positionY = positionY;
