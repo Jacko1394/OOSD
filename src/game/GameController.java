@@ -98,7 +98,7 @@ public class GameController implements Initializable {
             var board = game.getBoard();
 
             //todo: is this needed? DBC ::: game won't let user select piece if not his team's
-            if (board.getCurrentProduct().getProductTeam() != game.getCurrentTeam()) {
+            if (!board.getCurrentProduct().getProductTeam().getTeamID().equalsIgnoreCase(game.getCurrentTeam().getTeamID())) {
                 return;
             }
 
@@ -108,7 +108,7 @@ public class GameController implements Initializable {
             var rolled = product.getDice().roll();
             diceNumber.setText("" + rolled);
 
-            Cell[][] paths = board.search(product.getPositionX(),product.getPositionY(),rolled);
+            Cell[][] paths = board.search(product.getPositionX(), product.getPositionY(), rolled);
             System.out.println("Number of paths: " + paths.length + " | Dice:" + rolled);
 
             if ( paths.length == 1 ) {
@@ -129,7 +129,7 @@ public class GameController implements Initializable {
             button.setDisable(false);
 
         } catch (Exception ex) {
-            // TODO
+            ex.printStackTrace();
         }
 
     }
