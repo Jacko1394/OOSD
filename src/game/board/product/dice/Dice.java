@@ -15,7 +15,7 @@ public class Dice {
 
     public int roll() {
         Random rand = new Random();
-        int[] currentTurnConfig = dd.decorate();
+        int[] currentTurnConfig = dd.decorate(config);
         int rolled = currentTurnConfig[rand.nextInt(currentTurnConfig.length)];
         return rolled;
     }
