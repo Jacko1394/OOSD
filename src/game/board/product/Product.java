@@ -3,12 +3,14 @@ package game.board.product;
 import com.google.java.contract.Invariant;
 import com.google.java.contract.Requires;
 import game.Team;
+import game.board.product.dice.Rollable;
 import game.board.product.dice.Dice;
+
 
 @Invariant("positionX >= 0 && positionY >= 0")
 public abstract class Product {
     
-    private Dice dice;
+    private Rollable dice;
     private int positionX;
     private int positionY;
     protected String productID;
@@ -19,13 +21,13 @@ public abstract class Product {
     @Requires("x >= 0 && y >= 0")
     public Product(int[] dice, String team, int positionX, int positionY)
     {
-        this.dice = new Dice(dice, new StandardDice());
+        this.dice = new Dice(dice);
         this.productTeam = new Team(team, false);
         this.positionX = positionX;
         this.positionY = positionY;
     }
 
-    public Dice getDice(){
+    public Rollable getDice(){
         return this.dice;
     }
 

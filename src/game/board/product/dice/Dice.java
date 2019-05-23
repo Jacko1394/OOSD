@@ -1,31 +1,19 @@
 package game.board.product.dice;
 
-import java.util.Arrays;
 import java.util.Random;
 
-public class Dice {
+public class Dice implements Rollable {
 
-    protected int[] config;
-    private DiceDecorator dd;
+    private int[] config;
 
-    public Dice(int[] config, DiceDecorator dd) {
+
+    public Dice(int[] config) {
         this.config = config;
-        this.dd = dd;
     }
 
     public int roll() {
         Random rand = new Random();
-        int[] currentTurnConfig = dd.decorate(config);
-        int rolled = currentTurnConfig[rand.nextInt(currentTurnConfig.length)];
+        int rolled = config[rand.nextInt(config.length)];
         return rolled;
     }
-
-    public int[] getConf() {
-        return config;
-    }
-
-//    public DiceDecorator powerUpDecorator(Powerup powerUp)
-//    {
-//
-//    }
 }

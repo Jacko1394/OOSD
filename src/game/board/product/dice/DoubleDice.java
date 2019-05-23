@@ -1,14 +1,13 @@
 package game.board.product.dice;
 
-public class DoubleDice extends DiceDecorator {
+public class DoubleDice extends DiceDecorator implements Rollable {
 
-    @Override
-    public int[] decorate(int[] config)
-    {
-        for(int i = 0; i < config.length; i++)
-        {
-            config[i] *= 2;
-        }
-        return config;
+    public DoubleDice(Dice dice) {
+        super(dice);
     }
+
+    public int roll(){
+        return this.dice.roll() * 2 ;
+    }
+
 }

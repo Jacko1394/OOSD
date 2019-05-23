@@ -1,14 +1,12 @@
 package game.board.product.dice;
 
-public class BigTen extends DiceDecorator {
+public class BigTen extends DiceDecorator implements Rollable {
 
-    @Override
-    public int[] decorate(int[] config)
-    {
-        for(int i = 0; i < config.length; i++)
-        {
-            config[i] = 10;
-        }
-        return config;
+    public BigTen(Dice dice){
+        super(dice);
+    }
+
+    public int role(){
+        return 10;
     }
 }
