@@ -8,8 +8,11 @@ public class Mac extends AppleProducts {
     public Mac(int positionX, int positionY) {
         super(dice, positionX, positionY);
         imgPath = "src/logosml/mac.png";
-        productID = "Mac";
-//        productTeam = "Apple";
+    }
+
+    @Override
+    public String getProductID() {
+        return "Mac";
     }
 
 }

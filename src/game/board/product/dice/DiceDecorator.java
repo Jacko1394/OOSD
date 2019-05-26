@@ -2,9 +2,9 @@ package game.board.product.dice;
 
 public abstract class DiceDecorator implements Rollable {
 
-    protected Dice dice;
+    protected Rollable dice;
 
-    public DiceDecorator(Dice dice )
+    public DiceDecorator(Rollable dice )
     {
         this.dice = dice;
     }
@@ -13,7 +13,7 @@ public abstract class DiceDecorator implements Rollable {
         return this.dice.roll();
     }
 
-    public Dice getDice() {
+    public Rollable getDice() {
         return this.dice;
     }
 

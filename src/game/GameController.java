@@ -4,6 +4,7 @@ import game.board.Board;
 import game.board.BoardController;
 
 import game.board.cell.Cell;
+import game.board.product.Product;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.PauseTransition;
@@ -102,31 +103,14 @@ public class GameController implements Initializable {
                 return;
             }
 
-            button.setDisable(true);
+
 
             var product = board.getCurrentProduct();
             var rolled = product.getDice().roll();
             diceNumber.setText("" + rolled);
-
-            Cell[][] paths = board.search(product.getPositionX(), product.getPositionY(), rolled);
-            System.out.println("Number of paths: " + paths.length + " | Dice:" + rolled);
-
-            if ( paths.length == 1 ) {
-                board.movePiece(product, paths[0][rolled - 1]);
-            } else {
-                var rand = new Random();
-                board.setChoiceState(paths);
-                int choice = rand.nextInt(paths.length);
-                System.out.println("Moving piece to path: " + choice);
-                board.movePiece(product, paths[choice][rolled]);
-                //TODO update board state to wait for user input
-            }
+            this.movePeice(rolled, product);
 
 
-            boardController.initialize(null, null);
-            currentTurnLabel.setText("Current team: " + game.nextTeam());
-
-            button.setDisable(false);
 
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -134,8 +118,58 @@ public class GameController implements Initializable {
 
     }
 
+    private void movePeice(int rolled, Product product) {
+        var board = game.getBoard();
+        button.setDisable(true);
+        Cell[][] paths = board.search(product.getPositionX(), product.getPositionY(), rolled);
+        System.out.println("Number of paths: " + paths.length + " | Dice:" + rolled);
+
+        if ( paths.length == 1 ) {
+            board.movePiece(product, paths[0][rolled - 1]);
+        } else {
+            var rand = new Random();
+            board.setChoiceState(paths);
+            int choice = rand.nextInt(paths.length);
+            System.out.println("Moving piece to path: " + choice);
+            board.movePiece(product, paths[choice][rolled]);
+            //TODO update board state to wait for user input
+        }
+
+
+        boardController.initialize(null, null);
+        currentTurnLabel.setText("Current team: " + game.nextTeam());
+
+        button.setDisable(false);
+    }
+
     @FXML
     public void powerupClicked() {
+        System.out.println("Starting roll");
+        var board = game.getBoard();
+        var product = board.getCurrentProduct();
+        product.powerUp();
+
+        try {
+
+
+            //todo: is this needed? DBC ::: game won't let user select piece if not his team's
+            if (!board.getCurrentProduct().getProductTeam().getTeamID().equalsIgnoreCase(game.getCurrentTeam().getTeamID())) {
+                return;
+            }
+
+            button.setDisable(true);
+
+            var rolled = product.getDice().roll();
+            diceNumber.setText("" + rolled);
+
+            this.movePeice(rolled,product);
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            product.powerDown();
+        }
+
         System.out.println("POWER");
     }
 

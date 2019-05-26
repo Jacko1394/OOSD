@@ -7,8 +7,11 @@ public class Powershell extends MicrosoftProducts {
     public Powershell(int positionX, int positionY) {
         super(dice, positionX, positionY);
         imgPath = "src/logosml/powershell.png";
-        productID = "Powershell";
-//        productTeam = "Microsoft";
+    }
+
+    @Override
+    public String getProductID() {
+        return "Powershell";
     }
 
 }

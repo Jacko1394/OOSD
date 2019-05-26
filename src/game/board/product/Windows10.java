@@ -7,8 +7,11 @@ public class Windows10 extends MicrosoftProducts {
     public Windows10(int positionX, int positionY) {
         super(dice, positionX, positionY);
         imgPath = "src/logosml/win10.png";
-        productID = "Windows10";
-//        productTeam = "windows";
+    }
+
+    @Override
+    public String getProductID() {
+        return "Windows10";
     }
     
 }

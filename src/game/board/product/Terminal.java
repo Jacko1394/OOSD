@@ -7,8 +7,11 @@ public class Terminal extends AppleProducts {
     public Terminal(int positionX, int positionY) {
         super(dice,positionX, positionY);
         imgPath = "src/logosml/terminal.png";
-        productID = "Terminal";
-//        productTeam = "Apple";
+    }
+
+    @Override
+    public String getProductID() {
+        return "Terminal";
     }
 
 }

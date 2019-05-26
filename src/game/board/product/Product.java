@@ -3,6 +3,7 @@ package game.board.product;
 import com.google.java.contract.Invariant;
 import com.google.java.contract.Requires;
 import game.Team;
+import game.board.product.dice.DiceDecoratorFactory;
 import game.board.product.dice.Rollable;
 import game.board.product.dice.Dice;
 
@@ -11,9 +12,11 @@ import game.board.product.dice.Dice;
 public abstract class Product {
     
     private Rollable dice;
+    private Rollable decoratedDice;
+    private Boolean poweredUp = false;
+    private Boolean powerBlocked = false;
     private int positionX;
     private int positionY;
-    protected String productID;
     protected Team productTeam;
 
     public String imgPath;
@@ -22,13 +25,32 @@ public abstract class Product {
     public Product(int[] dice, String team, int positionX, int positionY)
     {
         this.dice = new Dice(dice);
+        this.decoratedDice = DiceDecoratorFactory.build(this.getProductID(),this.dice);
         this.productTeam = new Team(team, false);
         this.positionX = positionX;
         this.positionY = positionY;
     }
 
+    public String getProductID() {
+        return "";
+    }
+
+
     public Rollable getDice(){
-        return this.dice;
+        if(this.poweredUp && this.powerBlocked == false){
+            this.powerBlocked = true;
+            return this.decoratedDice;
+        }else{
+            return this.dice;
+        }
+    }
+
+    public void powerUp() {
+        this.poweredUp = true;
+    }
+
+    public void powerDown() {
+        this.poweredUp = false;
     }
 
     public int getPositionY() {
@@ -51,7 +73,7 @@ public abstract class Product {
 
     public String getID()
     {
-        return productID;
+        return this.getProductID();
     }
 
     public Team getProductTeam()
