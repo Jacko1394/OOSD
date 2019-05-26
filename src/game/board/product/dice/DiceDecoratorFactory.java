@@ -6,14 +6,16 @@ public class DiceDecoratorFactory {
         switch (type){
             case "OSX":
             case "Terminal":
+                return new FiftyFifty(dice);
             case "Powershell":
                 return new BigTen(dice);
             case "Mac":
             case "SurfacePro":
+                return new HalfDice(dice);
             case "Windows10":
                 return new DoubleDice(dice);
             default:
-                return new BigTen(dice);
+                return dice;
 
         }
     }
