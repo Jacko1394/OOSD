@@ -134,4 +134,9 @@ public class GameController implements Initializable {
 
     }
 
+    @FXML
+    public void powerupClicked() {
+        System.out.println("POWER");
+    }
+
 }

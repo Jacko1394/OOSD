@@ -12,7 +12,7 @@
       alignment="CENTER">
 
     <VBox alignment="CENTER"
-          spacing="120"
+          spacing="90"
           prefWidth="500"
           fx:id="controlView">
 
@@ -22,7 +22,7 @@
                textAlignment="CENTER"
                textFill="black">
             <font>
-                <Font name="Comic Sans MS" size="64"/>
+                <Font name="Comic Sans MS" size="48"/>
             </font>
         </Label>
 
@@ -68,6 +68,12 @@
                     scaleY="2"/>
 
         </HBox>
+
+        <Button text="Use power-up"
+                disable="false"
+                onAction="#powerupClicked"
+                scaleX="2"
+                scaleY="2"/>
 
     <VBox alignment="CENTER_LEFT"
           spacing="-10"
