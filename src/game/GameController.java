@@ -98,9 +98,9 @@ public class GameController implements Initializable {
     public void rollClicked() {
         System.out.println("Starting roll");
 
-        if (BoardController.Rolled) {
-            return;
-        }
+//        if (BoardController.Rolled) {
+//            return;
+//        }
 
         try {
             var board = game.getBoard();
@@ -118,12 +118,12 @@ public class GameController implements Initializable {
             RollChoice = board.search(product.getPositionX(), product.getPositionY(), rolled);
             BoardController.Rolled = true;
 
-            for (var list : RollChoice) {
-                var c = list[list.length - 1];
-                c.setCellColor("salmon");
-                boardController.RenderCell(c);
-            }
-//            this.movePeice(rolled, product);
+//            for (var list : RollChoice) {
+//                var c = list[list.length - 1]; // landing cell
+//                c.setCellColor("salmon");
+//                boardController.RenderCell(c); // doesn't work because cell doesnt know position...
+//            }
+            this.movePeice(rolled, product);
 
         } catch (Exception ex) {
             ex.printStackTrace();

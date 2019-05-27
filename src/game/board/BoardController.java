@@ -134,9 +134,9 @@ public class BoardController implements Initializable {
     @Requires("x >= 0 && y >= 0")
     public void clickedCell(Integer x, Integer y) {
 
-        if (Rolled) {
-            return;
-        }
+//        if (Rolled) {
+//            return;
+//        }
 
         var cell = this.board.getCell(x, y);
         Product prod = null;
@@ -196,9 +196,9 @@ public class BoardController implements Initializable {
         view.setOnDragDetected(new EventHandler<MouseEvent>() {
             public void handle(MouseEvent event) {
                 try {
-                    if (!Rolled) {
-                        return;
-                    }
+//                    if (!Rolled) {
+//                        return;
+//                    }
                     /* drag was detected, start a drag-and-drop gesture*/
                     /* allow any transfer mode */
                     Dragboard db = view.startDragAndDrop(TransferMode.ANY);
