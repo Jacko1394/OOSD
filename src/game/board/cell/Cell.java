@@ -23,6 +23,10 @@ public class Cell {
         return products;
     }
 
+    public boolean HasProducts() {
+        return products.size() > 0;
+    }
+
     public void addProduct(Product product)
     {
         products.add(product);

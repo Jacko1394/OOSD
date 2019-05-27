@@ -7,7 +7,6 @@ import game.board.product.dice.DiceDecoratorFactory;
 import game.board.product.dice.Rollable;
 import game.board.product.dice.Dice;
 
-
 @Invariant("positionX >= 0 && positionY >= 0")
 public abstract class Product {
     

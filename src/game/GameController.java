@@ -9,6 +9,7 @@ import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.PauseTransition;
 import javafx.animation.Timeline;
+import javafx.scene.input.DragEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -26,6 +27,8 @@ import java.util.ResourceBundle;
 import java.util.concurrent.TimeUnit;
 
 public class GameController implements Initializable {
+
+    public static Cell[][] RollChoice;
 
     // main model
     private Game game = new Game();
@@ -95,22 +98,32 @@ public class GameController implements Initializable {
     public void rollClicked() {
         System.out.println("Starting roll");
 
+        if (BoardController.Rolled) {
+            return;
+        }
+
         try {
             var board = game.getBoard();
+            var product = board.getCurrentProduct();
 
             //todo: is this needed? DBC ::: game won't let user select piece if not his team's
-            if (!board.getCurrentProduct().getProductTeam().getTeamID().equalsIgnoreCase(game.getCurrentTeam().getTeamID())) {
+            if (!product.getProductTeam().getTeamID().equalsIgnoreCase(game.getCurrentTeam().getTeamID())) {
                 return;
             }
 
-
-
-            var product = board.getCurrentProduct();
             var rolled = product.getDice().roll();
             diceNumber.setText("" + rolled);
-            this.movePeice(rolled, product);
 
+            //todo: rm static
+            RollChoice = board.search(product.getPositionX(), product.getPositionY(), rolled);
+            BoardController.Rolled = true;
 
+            for (var list : RollChoice) {
+                var c = list[list.length - 1];
+                c.setCellColor("salmon");
+                boardController.RenderCell(c);
+            }
+//            this.movePeice(rolled, product);
 
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -150,7 +163,6 @@ public class GameController implements Initializable {
         product.powerUp();
 
         try {
-
 
             //todo: is this needed? DBC ::: game won't let user select piece if not his team's
             if (!board.getCurrentProduct().getProductTeam().getTeamID().equalsIgnoreCase(game.getCurrentTeam().getTeamID())) {

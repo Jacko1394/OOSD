@@ -6,13 +6,21 @@ import game.board.cell.Cell;
 import game.board.cell.CellController;
 import game.board.product.Product;
 
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.input.ClipboardContent;
+import javafx.scene.input.Dragboard;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.input.TransferMode;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 
+import java.io.FileInputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -27,9 +35,7 @@ public class BoardController implements Initializable {
     private Board board;// copy of current the model
     private Game currentGame; // reference to raise events
 
-//    public void setModel(Board board) {
-//
-//    }
+    public static boolean Rolled = false;
 
     public Board getModel() { return board; }
     public GridPane getView() { return mainGrid; }
@@ -44,6 +50,12 @@ public class BoardController implements Initializable {
         this.board = game.getBoard();
         initialize(null, null);
     }
+
+
+
+
+
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -63,7 +75,9 @@ public class BoardController implements Initializable {
 
                 for (int j = 0; j < board.cells[i].length; j++) {
 
-                    if (board.cells[i][j].getIsSet()) {
+                    var cell = board.cells[i][j];
+
+                    if (cell.getIsSet()) {
 
                         // load new cell view
                         var loader = new FXMLLoader(view);
@@ -71,13 +85,18 @@ public class BoardController implements Initializable {
 
                         // set its model via controller
                         CellController cellController = loader.getController();
-                        cellController.setModel(board.cells[i][j]);
+                        cellController.setModel(cell);
 
                         // add its view to this view
-                        var cellView = cellController.getView();
-//                        mainGrid.setRowIndex(cellView, i);
-//                        mainGrid.setColumnIndex(cellView, j);
-//                        mainGrid.getChildren().add(cellView);
+                        var cellView = cellController.getView(); // pane
+
+                        if (cell.HasProducts()) {
+
+                            var prod = cell.getProducts().get(0);
+                            addDrag(cellView, prod);
+
+                        }
+
                         mainGrid.add(cellView, j, i);
 
                     }
@@ -114,6 +133,10 @@ public class BoardController implements Initializable {
 
     @Requires("x >= 0 && y >= 0")
     public void clickedCell(Integer x, Integer y) {
+
+        if (Rolled) {
+            return;
+        }
 
         var cell = this.board.getCell(x, y);
         Product prod = null;
@@ -162,10 +185,36 @@ public class BoardController implements Initializable {
 
             // add its view to this view
             var cellView = cellController.getView();
+            addDrag(cellView, cellController.getModel().getProducts().get(0));
             mainGrid.add(cellView, y, x);
         } catch (Exception ex) {
             // empty cell
         }
+    }
+
+    private void addDrag(Pane view, Product prod) {
+        view.setOnDragDetected(new EventHandler<MouseEvent>() {
+            public void handle(MouseEvent event) {
+                try {
+                    if (!Rolled) {
+                        return;
+                    }
+                    /* drag was detected, start a drag-and-drop gesture*/
+                    /* allow any transfer mode */
+                    Dragboard db = view.startDragAndDrop(TransferMode.ANY);
+
+                    /* Put a string on a dragboard */
+                    ClipboardContent content = new ClipboardContent();
+                    var image = new Image(new FileInputStream(prod.imgPath));
+                    content.putImage(image);
+                    db.setContent(content);
+
+                    event.consume();
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            }
+        });
     }
 
 }
