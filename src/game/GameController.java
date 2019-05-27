@@ -123,7 +123,7 @@ public class GameController implements Initializable {
 //                c.setCellColor("salmon");
 //                boardController.RenderCell(c); // doesn't work because cell doesnt know position...
 //            }
-            this.movePeice(rolled, product);
+            this.movePeice(rolled + 1, product);
 
         } catch (Exception ex) {
             ex.printStackTrace();
