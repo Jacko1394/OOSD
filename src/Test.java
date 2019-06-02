@@ -1,7 +1,6 @@
 import game.Game;
 
 import java.util.Scanner;
-import java.lang.Exception;
 
 
 public class Test {

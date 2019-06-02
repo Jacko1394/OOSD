@@ -1,7 +1,10 @@
 package game.board;
 
 import game.board.cell.Cell;
-import game.board.product.*;
+import game.board.product.AppleFactory;
+import game.board.product.MicrosoftFactory;
+import game.board.product.Product;
+import game.board.product.ProductFactory;
 
 import java.util.ArrayList;
 

@@ -5,7 +5,6 @@ import game.Game;
 import game.board.cell.Cell;
 import game.board.cell.CellController;
 import game.board.product.Product;
-
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
