@@ -2,8 +2,10 @@ package game;
 
 import game.board.Board;
 import game.board.product.Product;
+import game.turn.TurnTree;
 import game.board.BoardController;
 import game.board.cell.Cell;
+import game.turn;
 import com.google.java.contract.*; // cofoja
 
 import java.util.ArrayList;
@@ -17,21 +19,34 @@ public class Game {
     private Team apple  = new Team("Apple", false);
     private Team microsoft = new Team("Microsoft", false);
     private Team[] listOfTeams = {apple, microsoft};
+    private Turn currentTurn;
+    private TurnTree tt = new TurnTree();
 
     private ArrayList<Board> history = new ArrayList<>();
 
     public Board getBoard() {
-        return history.get(history.size() - 1);
+        return currentTurn.getBoard();
     }
 
-    public ArrayList<Board> getHistory() {
-        return history;
+    public void nextTurn()
+    {
+        this.currentTurn = tt.nextTurn(currentTurn.getBoard());
+    }
+
+    public void previousTurn()
+    {
+        this.currentBoardState = tt.previousTurn();
+    }
+
+    public void goToTurn(int tNumber)
+    {
+        this.currentBoardState = tt.goToTurn(tNumber);
     }
 
     public void startGame()
     {
         Board board = new Board();
-        history.add(board);
+        tt.initialiseTree(board);
 
         // used to assign each product to it's appropriate team.
         ArrayList<Product> products = board.getProducts();
@@ -52,6 +67,12 @@ public class Game {
         currentTeam = listOfTeams[rand.nextInt(getNumberOfTeams() - 1)];
 
         history.get(0).initialisePieces();
+    }
+
+    public void endTurn()
+    {
+        nextTurn();
+        currentTeam = nextTeam();
     }
 
     public Team nextTeam()
