@@ -6,8 +6,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
-import javafx.scene.shape.Rectangle;
 import javafx.scene.paint.Paint;
+import javafx.scene.shape.Rectangle;
 
 import java.io.FileInputStream;
 import java.net.URL;
