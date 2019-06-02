@@ -52,6 +52,11 @@ public class TurnTree {
                 count++;
             }
         }
+        Turn tempTurn = turnIterator;
+        turnIterator.setAlternateTurn(tempTurn);
+        turnIterator = tempTurn.getAlternateTurn();
+        turnIterator.setNextTurn(null);
+        turnIterator.setAlternateTurn(null);
         return turnIterator;
     }
 }
