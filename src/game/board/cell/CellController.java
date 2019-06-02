@@ -100,9 +100,6 @@ public class CellController implements Initializable {
         }
     }
 
-//    private double getThickness() {
-//        return bg.getHeight() - fg.getHeight();
-//    };
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

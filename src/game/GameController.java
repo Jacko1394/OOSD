@@ -45,7 +45,6 @@ public class GameController implements Initializable {
     private Label diceNumber;
 
 //    @FXML
-//    private Label info;
 
     @FXML
     private VBox controlView;

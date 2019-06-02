@@ -4,12 +4,10 @@ import game.board.Board;
 import game.board.product.Product;
 import game.turn.Turn;
 import game.turn.TurnTree;
-import game.board.BoardController;
 import game.board.cell.Cell;
 import com.google.java.contract.*; // cofoja
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 public class Game {

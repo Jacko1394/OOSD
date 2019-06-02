@@ -7,13 +7,4 @@
           fx:id="mainGrid"
           onMouseClicked="#clickGrid">
 
-<!--    <Label fx:id="info"-->
-<!--           text="5"-->
-<!--           translateX="60"-->
-<!--           translateY="10">-->
-<!--        <font>-->
-<!--            <Font name="Comic Sans MS" size="15"/>-->
-<!--        </font>-->
-<!--    </Label>-->
-
 </GridPane>

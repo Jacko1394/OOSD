@@ -118,10 +118,6 @@ public class Facade
         return board.getDirections(xCoordinate, yCoordinate);
     }
 
-//    public Cell getCell(int x, int y)
-//    {
-//        return cells[x][y];
-//    }
     public int[] getPoint(Cell cell) {
         return getPoint(cell);
     }

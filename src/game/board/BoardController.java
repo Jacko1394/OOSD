@@ -118,7 +118,6 @@ public class BoardController implements Initializable {
             }
             Integer colIndex = GridPane.getColumnIndex(clickedNode);
             Integer rowIndex = GridPane.getRowIndex(clickedNode);
-            //System.out.println("Mouse clicked cell: " + colIndex + " And: " + rowIndex);
             clickedCell(rowIndex, colIndex);
 
         }
@@ -127,11 +126,6 @@ public class BoardController implements Initializable {
 
     @Requires("x >= 0 && y >= 0")
     public void clickedCell(Integer x, Integer y) {
-
-//        if (Rolled) {
-//            return;
-//        }
-
         var cell = this.board.getCell(x, y);
         Product prod = null;
 
@@ -156,9 +150,6 @@ public class BoardController implements Initializable {
             RenderCell(cell);
         }
 
-        // For debugging
-        //info.setText("Cell x:"+x+" y:"+y+" color:"+cell.getCellColor()+"\n"+"Product "+this.board.getCurrentProduct());
-        //initialize(null, null); // re-render shortcut
     }
 
     @Requires("cell != null")
@@ -190,9 +181,6 @@ public class BoardController implements Initializable {
         view.setOnDragDetected(new EventHandler<MouseEvent>() {
             public void handle(MouseEvent event) {
                 try {
-//                    if (!Rolled) {
-//                        return;
-//                    }
                     /* drag was detected, start a drag-and-drop gesture*/
                     /* allow any transfer mode */
                     Dragboard db = view.startDragAndDrop(TransferMode.ANY);
