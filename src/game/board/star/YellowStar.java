@@ -21,10 +21,7 @@ public class YellowStar extends Star
     }
 
     public int collectStar() {
-        if (!this.isAlreadyCollected()){
             return 1;
-        }
-        return 0;
     }
 
 
