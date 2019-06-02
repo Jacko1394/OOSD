@@ -1,6 +1,7 @@
 package game.board.cell;
 
 import game.board.product.Product;
+import game.board.star.Star;
 
 import java.util.ArrayList;
 
@@ -10,9 +11,29 @@ public class Cell {
 
     private boolean isSet = false;
 
+
+    private Star star;
+
     private String color = "wheat";
     public final static String defaultColor = "wheat";
     public final static String selectColor = "green";
+
+    public boolean doesContainStar() {
+        if (star != null){
+            return true;
+        }
+        return false;
+    }
+
+    public void setStar(Star star) {
+        this.star = star;
+    }
+
+    public Star getStar() {
+        return star;
+    }
+
+
     
     private ArrayList<Product> products = new ArrayList<>();
     private String cellType;

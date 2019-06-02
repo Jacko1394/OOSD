@@ -16,6 +16,9 @@ public class Board {
     private int currentCellItem = 0;
     private String currentState = "Player"; // Should become an enum
 
+    private int microsoftPoints = 0;
+    private int applePoints = 0;
+
     
     // configuration of static board
     public String[][] mapConfig =
@@ -67,7 +70,7 @@ public class Board {
         this.products.add(appleProductFactory.generateProduct("osx",0,7));
         this.products.add(microsoftProductFactory.generateProduct("surfacepro",14,7));
         this.products.add(microsoftProductFactory.generateProduct("windows10",7,14));
-
+        //TODO: Initialise 3 yellow and blue stars at different spots
         for ( Product x : this.products ) {
             this.cells[x.getPositionX()][x.getPositionY()].addProduct(x);
         }
@@ -87,6 +90,14 @@ public class Board {
         product.setPositionX(xNew);
         cells[currentPositionX][currentPositionY].removeProduct(product);
         cells[xNew][yNew].addProduct(product);
+        if (cells[currentPositionX][currentPositionY].doesContainStar()){
+            int points = cells[currentPositionX][currentPositionY].getStar().collectStar();
+            if (product.getProductTeam().getTeamID() == "Microsoft" ){
+                microsoftPoints +=points;
+            } else {
+                applePoints += points;
+            }
+        }
     }
 
 
@@ -110,6 +121,7 @@ public class Board {
     }
 
     public void movePiece(Product product, Cell toCell ) {
+        // When move piece check star
         cells[product.getPositionX()][product.getPositionY()].removeProduct(product);
         int[] cellLocation = getPoint(toCell);
         product.setPositionX(cellLocation[0]);
