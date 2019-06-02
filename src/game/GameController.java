@@ -75,6 +75,7 @@ public class GameController implements Initializable {
 
     @FXML
     public void rollClicked() {
+
         System.out.println("Starting roll");
 
         try {
@@ -101,7 +102,13 @@ public class GameController implements Initializable {
 
     }
 
+    @FXML
+    public void undoTurn() {
+        game.previousTurn();
+    }
+
     private void movePeice(int rolled, Product product) {
+
         var board = game.getBoard();
         button.setDisable(true);
         Cell[][] paths = board.search(product.getPositionX(), product.getPositionY(), rolled);
