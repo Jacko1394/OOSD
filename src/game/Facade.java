@@ -156,7 +156,7 @@ public class Facade
     
     public int getCurrentCellItem()
     { 
-        return board.getCurrentCellItem() 
+        return board.getCurrentCellItem();
     }
 
     public ArrayList<Product> getProducts()
