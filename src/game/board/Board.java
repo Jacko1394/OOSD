@@ -155,7 +155,7 @@ public class Board {
         return paths;
     }
 
-    private ArrayList<Cell> searchBranch(int x , int y , int distance , ArrayList<Cell> path) {
+    public ArrayList<Cell> searchBranch(int x , int y , int distance , ArrayList<Cell> path) {
         path.add(getCell(x,y));
         if( distance == 0 ){return path;}
         ArrayList<Cell> newPaths = new ArrayList<>();

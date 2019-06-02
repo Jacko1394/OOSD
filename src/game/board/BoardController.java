@@ -51,12 +51,6 @@ public class BoardController implements Initializable {
         initialize(null, null);
     }
 
-
-
-
-
-
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 

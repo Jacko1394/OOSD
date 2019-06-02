@@ -1,5 +1,7 @@
 package game.turn;
 
+import game.board.Board;
+
 public class TurnTree {
 
     private Turn root;

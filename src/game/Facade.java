@@ -78,9 +78,6 @@ public class Facade
         game.setListOfTeams(listOfTeams);
     }
 
-
-
-
     public void initialisePieces()
     {
         board.initialisePieces();
@@ -90,7 +87,6 @@ public class Facade
     {
         board.movePiece(product, direction);
     }
-
 
     public void setChoiceState(Cell[][] paths) {
         board.setChoiceState(paths);
@@ -122,10 +118,10 @@ public class Facade
         return board.getDirections(xCoordinate, yCoordinate);
     }
 
-    public Cell getCell(int x, int y)
-    {
-        return cells[x][y];
-    }
+//    public Cell getCell(int x, int y)
+//    {
+//        return cells[x][y];
+//    }
     public int[] getPoint(Cell cell) {
         return getPoint(cell);
     }

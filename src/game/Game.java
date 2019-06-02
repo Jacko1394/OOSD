@@ -2,10 +2,10 @@ package game;
 
 import game.board.Board;
 import game.board.product.Product;
+import game.turn.Turn;
 import game.turn.TurnTree;
 import game.board.BoardController;
 import game.board.cell.Cell;
-import game.turn;
 import com.google.java.contract.*; // cofoja
 
 import java.util.ArrayList;
@@ -32,12 +32,12 @@ public class Game {
 
     public void previousTurn()
     {
-        this.currentBoardState = tt.previousTurn();
+        this.currentTurn = tt.previousTurn();
     }
 
     public void goToTurn(int tNumber)
     {
-        this.currentBoardState = tt.goToTurn(tNumber);
+        this.currentTurn = tt.goToTurn(tNumber);
     }
 
     public void startGame()
@@ -63,7 +63,8 @@ public class Game {
         Random rand = new Random(); 
         currentTeam = listOfTeams[rand.nextInt(getNumberOfTeams() - 1)];
 
-        history.get(0).initialisePieces();
+        board.initialisePieces();
+        nextTurn();
     }
 
     public void endTurn()

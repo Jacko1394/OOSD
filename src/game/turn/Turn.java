@@ -1,8 +1,10 @@
 package game.turn;
 
+import game.board.Board;
+
 public class Turn {
     
-    private Board board;
+    private Board board = new Board();
 
     // will check alternate first as it acts as current path.
     private Turn alternateTurn = null;
