@@ -60,9 +60,9 @@ public class Game {
         // randomly select a team to go first
         Random rand = new Random(); 
         currentTeam = listOfTeams[rand.nextInt(getNumberOfTeams() - 1)];
-
         board.initialisePieces();
-        nextTurn();
+        currentTurn = new Turn(board);
+
     }
 
     public void endTurn()

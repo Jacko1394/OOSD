@@ -2,7 +2,6 @@ package game;
 
 import game.board.Board;
 import game.board.BoardController;
-
 import game.board.cell.Cell;
 import game.board.product.Product;
 import javafx.animation.KeyFrame;
@@ -20,7 +19,6 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
-
 import java.net.URL;
 import java.util.Random;
 import java.util.ResourceBundle;
@@ -32,20 +30,14 @@ public class GameController implements Initializable {
 
     // main model
     private Game game = new Game();
-
     @FXML
     private HBox mainView;
-
     @FXML
     private VBox boardVbox;
     @FXML
     private HBox diceView;
-
     @FXML
     private Label diceNumber;
-
-//    @FXML
-
     @FXML
     private VBox controlView;
     @FXML
@@ -57,14 +49,11 @@ public class GameController implements Initializable {
 
     private static BoardController boardController;
 
-//    public Game getModel() { return game; }
-//    public HBox getView() { return mainView; }
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
         try {
-            game.startGame(); // this should be in ctor of Game
+            game.startGame();
 
             var loader = new FXMLLoader(getClass().getResource("board/board.fxml"));
             GridPane board = loader.load();
@@ -86,7 +75,6 @@ public class GameController implements Initializable {
 
             currentTurnLabel.setText("Current turn: " + game.getCurrentTeam());
 
-
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -96,10 +84,6 @@ public class GameController implements Initializable {
     @FXML
     public void rollClicked() {
         System.out.println("Starting roll");
-
-//        if (BoardController.Rolled) {
-//            return;
-//        }
 
         try {
             var board = game.getBoard();
@@ -117,11 +101,6 @@ public class GameController implements Initializable {
             RollChoice = board.search(product.getPositionX(), product.getPositionY(), rolled);
             BoardController.Rolled = true;
 
-//            for (var list : RollChoice) {
-//                var c = list[list.length - 1]; // landing cell
-//                c.setCellColor("salmon");
-//                boardController.RenderCell(c); // doesn't work because cell doesnt know position...
-//            }
             this.movePeice(rolled + 1, product);
 
         } catch (Exception ex) {
@@ -147,10 +126,8 @@ public class GameController implements Initializable {
             //TODO update board state to wait for user input
         }
 
-
         boardController.initialize(null, null);
         currentTurnLabel.setText("Current team: " + game.nextTeam());
-
         button.setDisable(false);
     }
 
