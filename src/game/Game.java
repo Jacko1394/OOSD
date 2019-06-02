@@ -15,14 +15,11 @@ import java.util.Random;
 public class Game {
 
     private Team currentTeam;
-    // teams can be fed in using stdin at a later stage for more than 2 players
     private Team apple  = new Team("Apple", false);
     private Team microsoft = new Team("Microsoft", false);
     private Team[] listOfTeams = {apple, microsoft};
     private Turn currentTurn;
     private TurnTree tt = new TurnTree();
-
-    private ArrayList<Board> history = new ArrayList<>();
 
     public Board getBoard() {
         return currentTurn.getBoard();

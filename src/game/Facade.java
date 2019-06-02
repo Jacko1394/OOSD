@@ -16,13 +16,29 @@ public class Facade
         return game.getBoard();
     }
 
-    public ArrayList<Board> getHistory() {
-        return game.getHistory();
+    public void nextTurn()
+    {
+        game.nextTurn();
+    }
+
+    public void previousTurn()
+    {
+        game.previousTurn();
+    }
+
+    public void goToTurn(int tNumber)
+    {
+        game.goToTurn(tNumber);
     }
 
     public void startGame()
     {
         game.startGame();
+    }
+
+    public void endTurn()
+    {
+        game.endTurn();
     }
 
     public Team nextTeam()
@@ -62,6 +78,9 @@ public class Facade
         game.setListOfTeams(listOfTeams);
     }
 
+
+
+
     public void initialisePieces()
     {
         board.initialisePieces();
@@ -71,6 +90,7 @@ public class Facade
     {
         board.movePiece(product, direction);
     }
+
 
     public void setChoiceState(Cell[][] paths) {
         board.setChoiceState(paths);
@@ -85,11 +105,16 @@ public class Facade
     }
 
     public int[] nextPosition(int x, int y, char direction) {
-        return board.nextPosition(x, y,direction);
+        return board.nextPosition(x, y, direction);
     }
 
     public Cell[][] search(int x , int y , int distance) {
-        return board.search(x, y, distance);
+
+        return board.search(x,y,distance);
+    }
+
+    private ArrayList<Cell> searchBranch(int x , int y , int distance , ArrayList<Cell> path) {
+        return board.searchBranch(x,y,distance,path);
     }
 
     public char[] getDirections(int xCoordinate, int yCoordinate)
@@ -99,18 +124,20 @@ public class Facade
 
     public Cell getCell(int x, int y)
     {
-        return board.getCell(x, y);
+        return cells[x][y];
     }
-
     public int[] getPoint(Cell cell) {
-        return board.getPoint(cell);
+        return getPoint(cell);
     }
 
-//    public Product getCurrentProduct() {  return this.currentProduct ;}
+    public Product getCurrentProduct() 
+    {  
+        return board.getCurrentProduct();
+    }
 
     public void setCurrentProduct(Product product) 
     { 
-        board.setCurrentProduct(product);
+        board.setCurrentProduct(product);;
     }
 
     public Cell getCurrentCell() 
@@ -120,16 +147,16 @@ public class Facade
 
     public void setCurrentCell(Cell cell) 
     { 
-        board.setCurrentCell(cell); 
+        board.setCurrentCell(cell);
     }
 
-    public void updateCurrentCell(Cell cell) 
-    {
+    public void updateCurrentCell(Cell cell) {
         board.updateCurrentCell(cell);
     }
+    
     public int getCurrentCellItem()
     { 
-        return board.getCurrentCellItem(); 
+        return board.getCurrentCellItem() 
     }
 
     public ArrayList<Product> getProducts()
